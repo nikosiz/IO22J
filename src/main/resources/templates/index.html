@@ -1,10 +1,45 @@
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-<body>
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatibile" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <tite>Document</tite>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <!--<script src="jquery-3.6.3.min.js"></script>-->
+</head>
+
+<prodPrice>
+<div class="nav-bar">
+    <button class="home">Home</button>
+    <button>Login</button>
+    <div class="search-wrapper" style="float: right">
+        <input type="search" id="search" placeholder="Search..." data-search>
+    </div>
+</div>
+
+<div class="product-productCards" data-product-productCards-container>
+    <template data-product-productCard-template>
+        <div class="product-productCard">
+            <div class="prod-name" data-name></div>
+            <div class="prod-price" data-price></div>
+            <div class="prod-ship-price" data-ship-price></div>
+            <div class="prod-seller" data-seller></div>
+            <!--<a class="prod-link" href="" data-link></a>-->
+        </div>
+    </template>
+
+</div>
+
+
+<!--------------------------------------------------------------------->
 <div sec:authorize="!isAuthenticated()">
     <a th:href="@{/oauth2/authorization/auth0}">Log In</a>
 </div>
 <div sec:authorize="isAuthenticated()">
-    <a th:href="@{/logout}">Log Out</a>
+    <p>You are logged in!</p>
 </div>
-</body>
-</html>
+</prodPrice>
