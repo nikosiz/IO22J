@@ -18,7 +18,7 @@ searchInput.addEventListener("input", e => {
 fetch("https://jsonplaceholder.typicode.com/users")
     .then(res => res.json())
     .then(data => {
-        //user z bazy .json
+        //user z bazy users.json
         users = data.map(user => {
             const productCard = productCardTemplate.content.cloneNode(true).children[0]
             const prodName = productCard.querySelector("[data-name]")
