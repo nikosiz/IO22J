@@ -7,10 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <tite></tite>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/css/styles.css">
-    <script src="/js/script.js" defer></script>
+    <link rel="stylesheet" href="/static/css/styles.css">
     <!--<script src="jquery-3.6.3.min.js"></script>-->
 </head>
+
+<body>
+
+<div class="header">
+    <p class="logo">LOGO</p>
+    <div class="cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        <p id="count">0</p></div>
+</div>
 
 <div class="nav-bar">
     <button class="home">Home</button>
@@ -34,6 +41,9 @@
     </template>
 
 </div>
+<script src="/static/js/script.js"></script>
+
+</body>
 
 <!--------------------------------------------------------------------->
 <div sec:authorize="!isAuthenticated()">
