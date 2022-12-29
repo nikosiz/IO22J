@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatibile" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <tite></tite>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/shopping-cart.css">
+    <link rel="stylesheet" href="/static/css/font-awesome.css">
+    <script src="/js/script.js" defer></script>
+    <!--<script src="jquery-3.6.3.min.js"></script>-->
+</head>
+
+<body>
+<div class="header">
+    <p class="logo">LOGO</p>
+    <div class="cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        <p id="count">0</p></div>
+</div>
+
+<div class="container">
+    <div id="root"></div>
+    <div class="side-bar">
+        <div class="head"><p>My cart</p></div>
+        <div id="cart-item">Your cart is empty</div>
+        <div class="foot">
+            <h3>Total</h3>
+            <h2 id="total">PLN 0,00</h2>
+        </div>
+
+    </div>
+
+
+</div>
+
+</body>
+
+</html>
