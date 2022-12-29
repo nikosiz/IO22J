@@ -42,3 +42,11 @@ fetch("https://jsonplaceholder.typicode.com/users")
             }
         })
     })
+
+function hideHeaderOptions() {
+
+    if (sessionManager.isLogged()) {
+        document.getElementById("login-btn").style.display = "none";
+    } else {
+    }
+}

@@ -15,20 +15,41 @@
 
 <div class="header">
     <p class="logo">LOGO</p>
-    <div class="cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
-        <p id="count">0</p></div>
-</div>
 
-<div class="nav-bar">
-    <button class="home">Home</button>
-    <button>Login</button>
-    <button style="float: right; margin-left: 5px;">Import file</button>
-    <button type="submit" style="float: right; margin-left: 5px;"><i class="fa fa-search"></i></button>
-    <div class="search-wrapper" style="float: right">
+    <div class="search-wrapper">
         <input type="search" id="search" placeholder="Search..." data-search>
+        <button type="submit" style="float: right; margin-left: 5px;"><i class="fa fa-search"></i></button>
+        <button style="float: right; margin-left: 5px;">Import file</button>
+    </div>
+
+    <div id="login-basket">
+        <div sec:authorize="!isAuthenticated()">
+            <a th:href="@{/oauth2/authorization/auth0}">
+                <button id="login-btn">Login</button>
+            </a>
+        </div>
+
+        <div sec:authorize="isAuthenticated()">
+            <a th:href="@{/logout}">
+                <button>Logout</button>
+            </a>
+        </div>
+
+        <div style=" float:end; margin-left: 5px;
+        ">
+            <a href="shopping-cart.html" style="text-decoration:none;">
+                <div class="cart">
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                    <p id="count">0</p>
+                </div>
+            </a>
+        </div>
     </div>
 
 </div>
+
+</div>
+
 <div class="product-productCards" data-product-productCards-container>
     <template data-product-productCard-template>
         <div class="product-productCard">
@@ -44,11 +65,3 @@
 <script src="/static/js/script.js"></script>
 
 </body>
-
-<!--------------------------------------------------------------------->
-<div sec:authorize="!isAuthenticated()">
-    <a th:href="@{/oauth2/authorization/auth0}">Log In</a>
-</div>
-<div sec:authorize="isAuthenticated()">
-    <p>You are logged in!</p>
-</div>

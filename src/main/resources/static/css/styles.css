@@ -19,11 +19,18 @@ prodPrice {
 
 .search-wrapper {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    max-width: 500px;
-    flex-direction: column;
-    gap: 0.25rem;
+    padding: 7px 10px;
+    border-radius: 20px;
+    width: auto;
+}
+
+#search {
+    border-radius: 20px;
+    border: none;
+    appearance: none;
+    padding: 10px 20px;
 }
 
 input {
@@ -61,9 +68,9 @@ input {
 .header {
     height: 50px;
     width: 100%;
-    background-color: goldenrod;
-    border-radius: 3px;
-    margin: 0px 0px;
+    background-color: darkgoldenrod;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -82,7 +89,7 @@ input {
     justify-content: space-between;
     align-items: center;
     padding: 7px 10px;
-    border-radius: 22px;
+    border-radius: 20px;
     width: 80px;
 }
 
@@ -91,12 +98,37 @@ input {
 }
 
 .cart p {
-    height: 22px;
-    width: 22px;
+    height: 20px;
+    width: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 22px;
+    border-radius: 20px;
     background-color: goldenrod;
     color: white;
+}
+
+button {
+    width: 100%;
+    position: relative;
+    border: none;
+    border-radius: 5px;
+    background-color: goldenrod;
+    padding: 5px 10px;
+    cursor: pointer;
+    white-space: nowrap;
+    color: white;
+}
+
+button:hover {
+    background-color: gold;
+}
+
+#login-basket {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 20px;
+    width: auto;
 }
