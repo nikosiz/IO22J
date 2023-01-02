@@ -109,7 +109,7 @@ function displayCart() {
         productContainer.innerHTML+=`
             <div class="cartTotalContainer">
             <h4 class="cartTotalTitle">Total Price</h4>
-            <h4 class="cartTotal">$${cartCost}.00</h4>`
+            <h4 class="cartTotal">$${cartCost}.00</h4> `
     }
 }
 
