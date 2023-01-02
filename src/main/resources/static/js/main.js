@@ -76,4 +76,43 @@ function totalCost(product) {
     }
 }
 
+function displayCart() {
+    let cartItems = localStorage.getItem("productsInCart");
+    cartItems = JSON.parse(cartItems);
+
+    console.log(cartItems);
+    //I just get null at this part
+    let productContainer = document.querySelector(".products");
+    let cartCost = localStorage.getItem('totalCost');
+
+    if (cartItems && productContainer) {
+        //to be empty when we reload
+        productContainer.innerHTML = '';
+        Object.values(cartItems).map(item => {
+            productContainer.innerHTML += `
+            <div class="product">
+                <span>${item.name}</span> 
+            </div>
+            <div class="price">${item.price}</div>
+            <div class="quantity">
+                <i class="fa fa-caret-left" aria-hidden="true"></i>
+                <span style="padding-left: 5px;padding-right: 5px;">${item.inCart}</span>
+                <i class="fa fa-caret-right" aria-hidden="true"></i>
+            </div>
+            <div class="total">${item.inCart * item.price}
+            </div>
+            <div class="delete-item">               
+                <i class="fa fa-circle-xmark" aria-hidden="true"></i>
+            </div>`;
+        });
+
+        productContainer.innerHTML+=`
+            <div class="cartTotalContainer">
+            <h4 class="cartTotalTitle">Total Price</h4>
+            <h4 class="cartTotal">$${cartCost}.00</h4>
+        `
+    }
+}
+
 onLoadCartNumbers();
+displayCart();
