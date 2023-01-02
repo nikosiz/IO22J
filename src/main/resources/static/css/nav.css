@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+    font-size: 18px;
+}
+
+header {
+    height: 50px;
+    width: 100%;
+    background-color: darkgoldenrod;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+header .logo {
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.search-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 10px;
+    border-radius: 20px;
+    width: auto;
+}
+
+#search {
+    border-radius: 20px;
+    border: none;
+    appearance: none;
+    padding: 10px 20px;
+}
+
+input {
+    font-size: 1rem;
+}
+
+.cart {
+    display: flex;
+    background-color: white;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 10px;
+    border-radius: 20px;
+    width: 80px;
+}
+
+.fa-shopping-cart {
+    color: goldenrod;
+}
+
+.cart span {
+    height: 20px;
+    width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    background-color: goldenrod;
+    color: white;
+}
+
+button {
+    width: 100%;
+    position: relative;
+    border: none;
+    border-radius: 5px;
+    background-color: goldenrod;
+    padding: 5px 10px;
+    cursor: pointer;
+    white-space: nowrap;
+    color: white;
+}
+
+button:hover {
+    background-color: gold;
+}
+
+#login-basket {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 20px;
+    width: auto;
+}

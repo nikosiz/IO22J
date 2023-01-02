@@ -5,16 +5,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatibile" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <tite></tite>
+    <title></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/static/css/styles.css">
     <!--<script src="jquery-3.6.3.min.js"></script>-->
+    <script
+            src="https://code.jquery.com/jquery-3.6.3.js"
+            integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+            crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            $('#header').load('nav.html');
+        });
+    </script>
+
 </head>
 
 <body>
 
-<div class="header">
-    <p class="logo">LOGO</p>
+<div id="header">
+    <!--<p class="logo">LOGO</p>
 
     <div class="search-wrapper">
         <input type="search" id="search" placeholder="Search..." data-search>
@@ -45,8 +55,7 @@
             </a>
         </div>
     </div>
-
-</div>
+</div>-->
 
 </div>
 
