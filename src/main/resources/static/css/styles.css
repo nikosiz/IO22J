@@ -18,7 +18,25 @@ button {
     color: white;
 }
 
-button:hover {
+input[type="file"] {
+    display: none;
+}
+
+.choose-file {
+    display: inline-block;
+
+    width: 100%;
+    position: relative;
+    border: none;
+    border-radius: 5px;
+    background-color: goldenrod;
+    padding: 5px 10px;
+    cursor: pointer;
+    white-space: nowrap;
+    color: white;
+}
+
+.choose-file:hover, button:hover {
     background-color: gold;
 }
 
@@ -138,7 +156,7 @@ input {
 }
 
 .product {
-    width: 30%;
+    width: 16%;
     display: flex;
     justify-content: space-around;
     padding: 10px 0;
@@ -146,14 +164,14 @@ input {
 }
 
 .product-name {
-    width: 30%;
+    width: 16%;
     align-items: center;
     display: flex;
     justify-content: center;
 }
 
 .price {
-    width: 15%;
+    width: 16%;
     justify-content: center;
     display: flex;
     border-bottom: 1px solid lightgrey;
@@ -161,7 +179,7 @@ input {
 }
 
 .quantity {
-    width: 10%;
+    width: 16%;
     border-bottom: 1px solid lightgrey;
     display: flex;
     justify-content: center;
@@ -169,7 +187,15 @@ input {
 }
 
 .total {
-    width: 30%;
+    width: 16%;
+    border-bottom: 1px solid lightgrey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.link {
+    width: 16%;
     border-bottom: 1px solid lightgrey;
     display: flex;
     align-items: center;
@@ -177,7 +203,7 @@ input {
 }
 
 .delete-item {
-    width: 10%;
+    width: 16%;
     border-bottom: 1px solid lightgrey;
     display: flex;
     align-items: center;
@@ -206,4 +232,50 @@ input {
 
 cartTotal {
     width: 10%;
+}
+
+.history-container {
+    max-width: 100%;
+    justify-content: center;
+    margin: 0 auto;
+    margin: 50px;
+}
+
+.history-header {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 4px solid lightgrey;
+    margin: 0 auto;
+}
+
+.hist-product {
+    width: 16%;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    border-bottom: 1px solid lightgrey;
+}
+
+.hist-name {
+    width: 50%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.hist-price {
+    width: 25%;
+    justify-content: center;
+    display: flex;
+    border-bottom: 1px solid lightgrey;
+    align-items: center;
+}
+
+.hist-link {
+    width: 25%;
+    border-bottom: 1px solid lightgrey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

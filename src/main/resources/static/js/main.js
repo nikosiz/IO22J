@@ -101,6 +101,7 @@ function displayCart() {
             </div>
             <div class="total">${item.inCart * item.price}
             </div>
+            <div class="link">asdf</div>
             <div class="delete-item">               
                 <i class="fa fa-circle-xmark" aria-hidden="true"></i>
             </div>`;
