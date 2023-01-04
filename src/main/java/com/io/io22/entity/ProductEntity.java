@@ -13,5 +13,12 @@ public class ProductEntity {
 
     private String name;
 
+    private Double price;
+
+    private Double shippingPrice;
+
+    private String seller;
+
     private String URL;
+
 }
