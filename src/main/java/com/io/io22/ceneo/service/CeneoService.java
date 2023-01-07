@@ -1,0 +1,22 @@
+package com.io.io22.ceneo.service;
+
+import com.io.io22.ceneo.client.CeneoClient;
+import com.io.io22.ceneo.dto.ProductClusterDTO;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class CeneoService {
+
+    private final CeneoClient ceneoClient;
+
+    public CeneoService(CeneoClient ceneoClient) {
+        this.ceneoClient = ceneoClient;
+    }
+
+    public List<ProductClusterDTO> getCeneoProducts(List<String> productNames) {
+        return ceneoClient.queryCeneoProductsResult(productNames);
+    }
+
+}
