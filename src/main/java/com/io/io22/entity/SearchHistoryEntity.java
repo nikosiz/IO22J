@@ -1,13 +1,14 @@
 package com.io.io22.entity;
 
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
 import java.util.Collection;
@@ -24,12 +25,16 @@ public class SearchHistoryEntity {
     @Column(name = "search_date")
     private LocalDateTime clusterSearchDate;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "users_email")
     private UserEntity userEntity;
 
-    @OneToMany
-    @JoinColumn(name = "product_id")
-    private Collection<ProductEntity> productEntity;
+    @ElementCollection
+    private Collection<String> productEntity;
 
+    public SearchHistoryEntity(LocalDateTime clusterSearchDate, UserEntity userEntity, Collection<String> productEntity) {
+        this.clusterSearchDate = clusterSearchDate;
+        this.userEntity = userEntity;
+        this.productEntity = productEntity;
+    }
 }
