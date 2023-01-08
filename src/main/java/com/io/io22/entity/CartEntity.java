@@ -2,6 +2,7 @@ package com.io.io22.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,11 +21,18 @@ public class CartEntity {
     @Column(name = "id")
     private Long id;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     private UserEntity userEntity;
 
     @OneToMany
-    @JoinColumn(name = "products_id")
-    private List<ProductEntity> products;
+    @JoinColumn(name = "offer_id")
+    private List<OfferEntity> offers;
 
+    public List<OfferEntity> getOffers() {
+        return offers;
+    }
+
+    public void setOffers(List<OfferEntity> offers) {
+        this.offers = offers;
+    }
 }
