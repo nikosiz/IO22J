@@ -7,10 +7,7 @@ import java.util.List;
 @Data
 public class ProductClusterDTO {
 
-    private String name;
-
-    private String uri;
-
-    private List<ProductDTO> offers;
+    private String searchProduct;
+    private List<ProductDTO> products;
 
 }

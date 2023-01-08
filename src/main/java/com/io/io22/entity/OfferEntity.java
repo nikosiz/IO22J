@@ -9,8 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "products")
-public class ProductEntity {
+@Table(name = "offer")
+public class OfferEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,6 +29,14 @@ public class ProductEntity {
     @Column(name = "thumbnail_link")
     private String thumbnailUrl;
 
-    private String url;
+    private String redirectURL;
 
+    public OfferEntity(String name, Double price, Double shippingPrice, String seller, String thumbnailUrl, String redirectURL) {
+        this.name = name;
+        this.price = price;
+        this.shippingPrice = shippingPrice;
+        this.seller = seller;
+        this.thumbnailUrl = thumbnailUrl;
+        this.redirectURL = redirectURL;
+    }
 }

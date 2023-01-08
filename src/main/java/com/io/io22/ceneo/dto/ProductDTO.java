@@ -2,19 +2,19 @@ package com.io.io22.ceneo.dto;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class ProductDTO {
 
+    private Long id;
+
     private String name;
 
-    private Double price;
-
-    private Double shippingPrice;
-
-    private String seller;
+    private String ceneoUrl;
 
     private String thumbnailUrl;
 
-    private String url;
+    private List<OfferDTO> offers;
 
 }

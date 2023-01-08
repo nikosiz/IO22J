@@ -22,7 +22,7 @@ public class ProductSearchModel {
     private String product7;
 
 
-    public List<String> getAllProductsName() {
+    public List<String> getAllProducts() {
         return List.of(product1, product2, product3, product4, product5, product6, product7);
     }
 }
