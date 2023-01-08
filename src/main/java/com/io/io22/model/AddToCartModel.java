@@ -1,10 +1,8 @@
 package com.io.io22.model;
 
-import lombok.Builder;
 import lombok.Data;
 
 @Data
-@Builder
 public class AddToCartModel {
 
     private String name;
@@ -19,6 +17,4 @@ public class AddToCartModel {
 
     private String redirectURL;
 
-    public AddToCartModel() {
-    }
 }
