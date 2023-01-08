@@ -4,10 +4,12 @@ import com.io.io22.entity.CartEntity;
 import com.io.io22.entity.OfferEntity;
 import com.io.io22.exception.UserNotFoundException;
 import com.io.io22.repository.CartRepository;
+import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -32,7 +34,14 @@ public class CartService {
         return cartRepository.save(cart);
     }
 
-    public Optional<CartEntity> getUserCart(String email) {
+    public CartEntity getUserCarts(OidcUser principal) {
+        if (Objects.isNull(principal)) {
+            throw new UserNotFoundException();
+        }
+        return getUserCart(principal.getEmail()).orElseThrow(UserNotFoundException::new);
+    }
+
+    private Optional<CartEntity> getUserCart(String email) {
         return cartRepository.findByUserEntity_Email(email);
     }
 }

@@ -26,7 +26,7 @@ public class CartController {
     @GetMapping
     public String getCart(Model model,
                           @AuthenticationPrincipal OidcUser principal) {
-        model.addAttribute("cartProducts", cartService.getUserCart(principal.getEmail()));
+        model.addAttribute("cartProducts", cartService.getUserCarts(principal));
         return "shopping-cart";
     }
 

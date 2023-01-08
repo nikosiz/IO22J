@@ -20,7 +20,7 @@ public class SearchHistoryController {
 
     @GetMapping
     public String getSearchHistory(Model model, @AuthenticationPrincipal OidcUser principal) {
-        model.addAttribute("searchHistory", historyService.getByUsersEmail(principal.getEmail()));
+        model.addAttribute("searchHistory", historyService.getByUsersEmail(principal));
         return "search-history";
     }
 }

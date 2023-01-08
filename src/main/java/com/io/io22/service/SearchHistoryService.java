@@ -36,7 +36,14 @@ public class SearchHistoryService {
         return searchHistoryRepository.save(searchHistory);
     }
 
-    public Collection<SearchHistoryEntity> getByUsersEmail(String email) {
+    public Collection<SearchHistoryEntity> getByUsersEmail(OidcUser principal) {
+        if (Objects.isNull(principal)) {
+            throw new UserNotFoundException();
+        }
+        return getByUsersEmail(principal.getEmail());
+    }
+
+    private Collection<SearchHistoryEntity> getByUsersEmail(String email) {
         return searchHistoryRepository.findByUserEntity_Email(email);
     }
 }
