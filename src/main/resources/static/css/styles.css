@@ -18,13 +18,25 @@ button {
     color: white;
 }
 
+.login-btn {
+    width: 100%;
+    margin-left: 5px;
+    position: relative;
+    border: none;
+    border-radius: 5px;
+    background-color: goldenrod;
+    padding: 5px 10px;
+    cursor: pointer;
+    white-space: nowrap;
+    color: white;
+}
+
 input[type="file"] {
     display: none;
 }
 
 .choose-file {
     display: inline-block;
-
     width: 100%;
     position: relative;
     border: none;
@@ -46,6 +58,7 @@ input[type="file"] {
     flex-wrap: wrap;
     margin-top: 50px;
     padding-bottom: 100px;
+
 }
 
 .fa {
@@ -61,7 +74,7 @@ input[type="file"] {
 header {
     height: 50px;
     width: 100%;
-    background-color: darkgoldenrod;
+    background-color: #b8860b;
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
     display: flex;
@@ -81,12 +94,12 @@ header .logo {
     justify-content: space-between;
     align-items: center;
     padding: 7px 10px;
-    border-radius: 20px;
+    border-radius: 5px;
     width: auto;
 }
 
 #search {
-    border-radius: 20px;
+    border-radius: 5px;
     border: none;
     appearance: none;
     padding: 10px 20px;
@@ -102,10 +115,9 @@ input {
     justify-content: space-between;
     align-items: center;
     padding: 7px 10px;
-    border-radius: 20px;
+    border-radius: 5px;
     width: 80px;
 }
-
 
 
 .cart span {
@@ -131,13 +143,21 @@ input {
 /*----------------  ----------------*/
 
 .image {
+
+    min-height: 250px;
     width: 300px;
     margin-right: 20px;
     margin-left: 20px;
     position: relative;
     overflow: hidden;
     display: inline-block;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    border-radius: 5px;
+    padding: 10px;
+    border-width: 1px;
+    border-style: solid;
 }
 
 /*---------------- SHOPPING CART ----------------*/

@@ -24,11 +24,11 @@
     <div th:each="product :${products}">
         <div class="image">
             <h3 th:text="${product.id}"></h3>
-            <h3 style="text-align: center;" th:text="${product.name}"></h3>
-            <h3 th:text="${product.price}"></h3>
-            <h3 th:text="${product.shippingPrice}"></h3>
-            <h3 th:text="${product.seller}"></h3>
-            <a th:href="${product.url}">Go to seller</a>
+            <h3 style="text-align: center; margin-top: 3px;" th:text="${product.name}"></h3>
+            <h4 style="font-weight: normal; margin-top: 3px;" th:text="${product.price}"></h4>
+            <h4 style="font-weight: normal; margin-top: 3px;" th:text="${product.shippingPrice}"></h4>
+            <h3 style="margin-top: 3px;" th:text="${product.seller}"></h3>
+            <a style="margin-top: 3px;" th:href="${product.url}">Go to seller</a>
 
             <button href="#" class="add-to-cart cart1">Add to cart</button>
         </div>
