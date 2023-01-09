@@ -1,20 +1,60 @@
 package com.io.io22.controller;
 
+import com.io.io22.ceneo.dto.ProductDTO;
+import com.io.io22.ceneo.service.CeneoService;
+import com.io.io22.model.AddToCartModel;
+import com.io.io22.model.ProductModel;
+import com.io.io22.model.ProductSearchModel;
+import com.io.io22.utils.Sort;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
 @Controller
 public class HomeController {
 
+    private final CeneoService ceneoService;
+
+    public HomeController(CeneoService ceneoService) {
+        this.ceneoService = ceneoService;
+    }
+
     @GetMapping("/")
     public String home(Model model, @AuthenticationPrincipal OidcUser principal) {
         model.addAttribute("products", getData());
+        model.addAttribute("productsToSearch", new ProductSearchModel());
+        model.addAttribute("addToCart", new AddToCartModel());
         return "index";
+    }
+
+    @PostMapping("/")
+    public String getProducts(ProductSearchModel productSearchModel,
+                              BindingResult result,
+                              Model model) {
+        if (result.hasErrors()) {
+            return "index";
+        }
+        model.addAttribute("products", ceneoService.getCeneoProducts(productSearchModel.getAllProducts()));
+        return "index";
+    }
+
+    @PostMapping("/sort")
+    public String getProducts(@RequestParam(value = "sort") Sort sort,
+                              List<ProductDTO> products,
+                              BindingResult result,
+                              Model model) {
+        if (result.hasErrors()) {
+            return "redirect:/";
+        }
+        //   model.addAttribute("products",ceneoService.getCeneoProducts(productsName));
+        return "redirect:/book/all";
     }
 
     public List<ProductModel> getData() {
@@ -39,7 +79,7 @@ public class HomeController {
                 .price(price)
                 .shippingPrice(shippingPrice)
                 .seller(seller)
-                .link(link)
+                .url(link)
                 .build();
     }
 }

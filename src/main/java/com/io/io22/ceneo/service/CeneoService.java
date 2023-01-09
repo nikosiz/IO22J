@@ -4,6 +4,7 @@ import com.io.io22.ceneo.client.CeneoClient;
 import com.io.io22.ceneo.dto.ProductClusterDTO;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -15,8 +16,11 @@ public class CeneoService {
         this.ceneoClient = ceneoClient;
     }
 
-    public List<ProductClusterDTO> getCeneoProducts(List<String> productNames) {
-        return ceneoClient.queryCeneoProductsResult(productNames);
+    public List<ProductClusterDTO> getCeneoProducts(List<String> searchProducts) {
+        if (searchProducts.isEmpty()) {
+            return Collections.emptyList();
+        }
+        return ceneoClient.queryCeneoProductsResult(searchProducts);
     }
 
 }
