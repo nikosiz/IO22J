@@ -4,6 +4,7 @@ import com.io.io22.ceneo.dto.ProductClusterDTO;
 import com.io.io22.ceneo.service.CeneoService;
 import com.io.io22.service.FileService;
 import com.io.io22.service.SearchHistoryService;
+import com.io.io22.utils.SortEnum;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Controller;
@@ -39,6 +40,7 @@ public class FileController {
 
     @PostMapping
     public String uploadFile(@RequestParam("file") MultipartFile file,
+                             @RequestParam("sorting") SortEnum sorting,
                              Model model,
                              RedirectAttributes redirectAttributes,
                              @AuthenticationPrincipal OidcUser principal) {
@@ -51,7 +53,7 @@ public class FileController {
             redirectAttributes.addFlashAttribute("message", PARSE_ERROR_MESSAGE);
             return "index";
         }
-        List<ProductClusterDTO> ceneoProducts = ceneoService.getCeneoProducts(productsToSearch);
+        List<ProductClusterDTO> ceneoProducts = ceneoService.getCeneoProducts(productsToSearch, sorting);
         if (ceneoProducts.isEmpty()) {
             redirectAttributes.addFlashAttribute("message", NO_RESULTS_FOUND_MESSAGE);
             return "index";

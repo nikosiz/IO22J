@@ -2,10 +2,9 @@ package com.io.io22.controller;
 
 import com.io.io22.ceneo.dto.ProductDTO;
 import com.io.io22.ceneo.service.CeneoService;
-import com.io.io22.mapper.OfferMapper;
 import com.io.io22.model.ProductModel;
 import com.io.io22.model.ProductSearchModel;
-import com.io.io22.utils.Sort;
+import com.io.io22.utils.SortEnum;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Controller;
@@ -15,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -28,24 +28,26 @@ public class HomeController {
 
     @GetMapping("/")
     public String home(Model model, @AuthenticationPrincipal OidcUser principal) {
-        model.addAttribute("products", getData());
+        model.addAttribute("products", ceneoService.getCeneoProducts(Collections.singletonList("barbie wymarzony kamper"), SortEnum.BY_PRICE));
+        // model.addAttribute("products", getData());
         model.addAttribute("productsToSearch", new ProductSearchModel());
         return "index";
     }
 
     @PostMapping("/")
-    public String getProducts(ProductSearchModel productSearchModel,
+    public String getProducts(@RequestParam("sorting") SortEnum sorting,
+                              ProductSearchModel productSearchModel,
                               BindingResult result,
                               Model model) {
         if (result.hasErrors()) {
             return "index";
         }
-        model.addAttribute("products", OfferMapper.toModel(ceneoService.getCeneoProducts(productSearchModel.getAllProducts())));
+        model.addAttribute("products", ceneoService.getCeneoProducts(productSearchModel.getAllProducts(), sorting));
         return "index";
     }
 
     @PostMapping("/sort")
-    public String getProducts(@RequestParam(value = "sort") Sort sort,
+    public String getProducts(@RequestParam(value = "sortEnum") SortEnum sortEnum,
                               List<ProductDTO> products,
                               BindingResult result,
                               Model model) {
