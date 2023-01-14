@@ -11,18 +11,19 @@
 </head>
 <body>
 
-<header class="header" th:fragment="nav">
-    <a style="text-decoration:none;" th:href="@{/}">
+<header class="top-nav" th:fragment="nav" style="align-items: center;">
+    <a style="text-decoration:none; margin-left: 20px" th:href="@{/}">
         <h2><p class="logo">LOGO</p></h2>
     </a>
 
-    <div class="search-wrapper">
+    <div class="search-container" style="margin-left:auto;">
         <input data-search id="search" placeholder="Search..." type="search">
         <label class="choose-file" style="float: right; margin-left: 5px;">
             <input type="file"/>Import file</label>
         <button style="float: right; margin-left: 5px;" type="submit"><i class="fa fa-search"></i></button>
     </div>
-    <div id="login-basket">
+
+    <div class="log-btn-container">
         <div sec:authorize="!isAuthenticated()">
             <a th:href="@{/oauth2/authorization/auth0}">
                 <button class="login-btn">Login</button>
@@ -33,10 +34,13 @@
                 <button class="login-btn">Log out</button>
             </a>
         </div>
-        <div id="cart" style="float:end; margin-left: 5px;">
+    </div>
+
+    <div id="cart-container">
+        <div id="cart">
             <a style="text-decoration:none;" th:href="@{/cart/}">
                 <div class="cart">
-                    <i aria-hidden="true" class="fa fa-shopping-cart"></i>
+                    <i aria-hidden="true" class="fa-solid fa-shopping-cart"></i>
                     <span id="count">0</span>
                 </div>
             </a>
