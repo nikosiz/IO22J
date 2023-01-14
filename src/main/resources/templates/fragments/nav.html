@@ -12,7 +12,7 @@
 <body>
 
 <header class="header" th:fragment="nav">
-    <a href="index.html" style="text-decoration:none;">
+    <a style="text-decoration:none;" th:href="@{/}">
         <h2><p class="logo">LOGO</p></h2>
     </a>
 
@@ -34,7 +34,7 @@
             </a>
         </div>
         <div id="cart" style="float:end; margin-left: 5px;">
-            <a href="shopping-cart.html" style="text-decoration:none;">
+            <a style="text-decoration:none;" th:href="@{/cart/}">
                 <div class="cart">
                     <i aria-hidden="true" class="fa fa-shopping-cart"></i>
                     <span id="count">0</span>

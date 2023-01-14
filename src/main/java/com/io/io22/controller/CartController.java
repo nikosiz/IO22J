@@ -1,7 +1,7 @@
 package com.io.io22.controller;
 
 import com.io.io22.mapper.OfferMapper;
-import com.io.io22.model.AddToCartModel;
+import com.io.io22.model.ProductModel;
 import com.io.io22.service.CartService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
@@ -32,9 +32,9 @@ public class CartController {
 
     @PostMapping(path = "/add")
     public String addToCart(@AuthenticationPrincipal OidcUser principal,
-                            AddToCartModel addToCartModel,
+                            ProductModel productModel,
                             RedirectAttributes redirectAttributes) {
-        cartService.addOfferToCart(OfferMapper.mapToOfferEntity(addToCartModel), principal.getEmail());
+        cartService.addOfferToCart(OfferMapper.toOfferEntity(productModel), principal.getEmail());
         redirectAttributes.addFlashAttribute("message", SUCCESSFULLY_ADDED_OFFER);
         return "redirect:/";
 

@@ -2,7 +2,7 @@ package com.io.io22.controller;
 
 import com.io.io22.ceneo.dto.ProductDTO;
 import com.io.io22.ceneo.service.CeneoService;
-import com.io.io22.model.AddToCartModel;
+import com.io.io22.mapper.OfferMapper;
 import com.io.io22.model.ProductModel;
 import com.io.io22.model.ProductSearchModel;
 import com.io.io22.utils.Sort;
@@ -30,7 +30,6 @@ public class HomeController {
     public String home(Model model, @AuthenticationPrincipal OidcUser principal) {
         model.addAttribute("products", getData());
         model.addAttribute("productsToSearch", new ProductSearchModel());
-        model.addAttribute("addToCart", new AddToCartModel());
         return "index";
     }
 
@@ -41,7 +40,7 @@ public class HomeController {
         if (result.hasErrors()) {
             return "index";
         }
-        model.addAttribute("products", ceneoService.getCeneoProducts(productSearchModel.getAllProducts()));
+        model.addAttribute("products", OfferMapper.toModel(ceneoService.getCeneoProducts(productSearchModel.getAllProducts())));
         return "index";
     }
 
@@ -75,11 +74,10 @@ public class HomeController {
     public ProductModel getModel(Long id, String name, Double price, Double shippingPrice, String seller, String link) {
         return ProductModel.builder()
                 .id(id)
-                .name(name)
                 .price(price)
                 .shippingPrice(shippingPrice)
                 .seller(seller)
-                .url(link)
+                .redirectUrl(link)
                 .build();
     }
 }

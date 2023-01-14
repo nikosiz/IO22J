@@ -9,6 +9,8 @@ public class ProductModel {
 
     private Long id;
 
+    private String searchProduct;
+
     private String name;
 
     private Double price;
@@ -19,5 +21,5 @@ public class ProductModel {
 
     private String thumbnailUrl;
 
-    private String url;
+    private String redirectUrl;
 }
