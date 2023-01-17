@@ -25,20 +25,19 @@ public class CeneoClient {
         this.restTemplate = restTemplate;
     }
 
-    private static String getUrl(List<String> productNames, SortEnum sortEnum) {
+    private static String getCeneoProductsUrl(List<String> productNames, SortEnum sortEnum) {
         return UriComponentsBuilder
                 .fromHttpUrl(URL)
                 .path(SEARCH)
                 .queryParam(PRODUCT_PARAM, productNames)
                 .queryParam(SORTING_PARAM, sortEnum.getValue())
-                /* .encode(StandardCharsets.UTF_8)*/
                 .build(false)
                 .toUriString();
     }
 
     public List<ProductClusterDTO> queryCeneoProductsResult(List<String> productNames, SortEnum sortEnum) {
         ResponseEntity<List<ProductClusterDTO>> exchange = restTemplate.exchange(
-                getUrl(productNames, sortEnum),
+                getCeneoProductsUrl(productNames, sortEnum),
                 HttpMethod.GET,
                 null,
                 new ParameterizedTypeReference<>() {
