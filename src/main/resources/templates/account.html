@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <link href="/css/styles.css" rel="stylesheet">
+    <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+    <title>Shopping cart</title>
+    <script crossorigin="anonymous" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+            src="https://code.jquery.com/jquery-3.6.3.js"></script>
+</head>
+<body>
+<div th:insert="fragments/nav :: header"></div>
+
+
+
+<!--<div class="container">
+    <div th:each="product :${products}">
+        <div class="image"><h3 th:text="${product.searchProduct}"></h3>
+            <h3 style="text-align: center; margin-top: 3px;" th:text="${product.getResultProduct().getName()}"></h3><h4
+                    style="font-weight: normal; margin-top: 3px;"
+                    th:text="${product.getResultProduct().getOffer().getPrice()}"></h4>       <h4
+                    style="font-weight: normal; margin-top: 3px;"
+                    th:text="${product.getResultProduct().getOffer().getShippingPrice()}"></h4>
+            <h3 style="margin-top: 3px;" th:text="${product.getResultProduct().getOffer().getSeller()}"></h3>       <a
+                    style="margin-top: 3px;" th:href="${product.getResultProduct().getOffer().getRedirectUrl()}">Go to
+                seller</a>
+            <button href="#" class="add-to-cart cart1" th:action="@{/cart/add}" th:object="${product}">Add to cart
+            </button>
+        </div>
+    </div>
+</div>-->
+</body>
+</html>

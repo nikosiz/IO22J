@@ -143,3 +143,6 @@ window.onclick = function(event) {
 
 onLoadCartNumbers();
 displayCart();
+
+
+

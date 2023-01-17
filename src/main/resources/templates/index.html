@@ -14,20 +14,31 @@
             integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
             src="https://code.jquery.com/jquery-3.6.3.js">
     </script>
+    <script src="/static/js/main.js" type="text/javascript"></script>
 </head>
 <body>
 
 <div th:insert="fragments/nav :: header"></div>
 
+<div class="img-container">
+    <img src="/images/children-playing.jpg" alt="Children Laughing" style="width:100%;">
+    <div class="center">
+        <h2>Welcome to ToyStores!</h2>
+        <h3>Tell us what do you need</h3>
+    </div>
+</div>
 <div class="container">
     <div th:each="product :${products}">
         <div class="image">
             <h3 th:text="${product.searchProduct}"></h3>
             <h3 style="text-align: center; margin-top: 3px;" th:text="${product.getResultProduct().getName()}"></h3>
-            <h4 style="font-weight: normal; margin-top: 3px;" th:text="${product.getResultProduct().getOffer().getPrice()}"></h4>
-            <h4 style="font-weight: normal; margin-top: 3px;" th:text="${product.getResultProduct().getOffer().getShippingPrice()}"></h4>
+            <h4 style="font-weight: normal; margin-top: 3px;"
+                th:text="${product.getResultProduct().getOffer().getPrice()}"></h4>
+            <h4 style="font-weight: normal; margin-top: 3px;"
+                th:text="${product.getResultProduct().getOffer().getShippingPrice()}"></h4>
             <h3 style="margin-top: 3px;" th:text="${product.getResultProduct().getOffer().getSeller()}"></h3>
-            <a style="margin-top: 3px;" th:href="${product.getResultProduct().getOffer().getRedirectUrl()}">Go to seller</a>
+            <a style="margin-top: 3px;" th:href="${product.getResultProduct().getOffer().getRedirectUrl()}">Go to
+                seller</a>
 
             <button href="#" class="add-to-cart cart1" th:action="@{/cart/add}" th:object="${product}">Add to cart
             </button>

@@ -1,26 +1,50 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" xmlns:th="http://thymeleaf.org">
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" xmlns:th="http://thymeleaf.org"
+      xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatibile">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <tite></tite>
+    <title></title>
     <link href="/css/styles.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+           integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+           crossorigin="anonymous" referrerpolicy="no-referrer"/>-->
     <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
     <script src="/static/js/main.js" type="text/javascript"></script>
+
 </head>
 <body>
 
-<header class="top-nav" th:fragment="nav" style="align-items: center;">
-    <a style="text-decoration:none; margin-left: 20px" th:href="@{/}">
-        <h2><p class="logo">LOGO</p></h2>
+<header class="top-nav" th:fragment="nav" style="">
+
+    <a style="text-decoration:none; margin-left: 20px;" th:href="@{/}">
+        <p>ToyStores</p>
     </a>
 
     <div class="search-container" style="margin-left:auto;">
-        <input data-search id="search" placeholder="Search..." type="search">
-        <label class="choose-file" style="float: right; margin-left: 5px;">
-            <input type="file"/>Import file</label>
-        <button style="float: right; margin-left: 5px;" type="submit"><i class="fa fa-search"></i></button>
+
+        <!--<form th:action="@{/search}" method="get">
+            <input type="text" name="keyword" th:value="${keyword}" placeholder="Search...">
+            <button type="submit" class="button">Search</button>
+            <button type="submit" class="button">Reset</button>
+        </input></form>-->
+
+
+
+        <form th:action="@{/search}" method="get"></form>
+                <input id="search" type="text" name="keyword" th:value="${keyword}" placeholder="Search...">
+
+
+        <button class="search-many-btn" style="float: right; margin-left: 5px;"><h4>search many</h4></button>
+            <button type="submit" class="button">Search</button>
+            <button type="submit" class="button">Reset</button>
+            </input></form>
+
+        <!--<button class="submit-search-btn" style="float: right; margin-left: 5px;" type="submit"><i
+                class="fa-solid fa-search"></i></button>-->
     </div>
 
     <div class="log-btn-container">
@@ -40,7 +64,7 @@
         <div id="cart">
             <a style="text-decoration:none;" th:href="@{/cart/}">
                 <div class="cart">
-                    <i aria-hidden="true" class="fa-solid fa-shopping-cart"></i>
+                    <i class="fa-solid fa-cart-shopping" style="color:white;"></i>
                     <span id="count">0</span>
                 </div>
             </a>

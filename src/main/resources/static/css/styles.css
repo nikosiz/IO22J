@@ -7,8 +7,18 @@
 }
 
 h3 {
+    font-family: 'Roboto', sans-serif;
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+h4 {
+    font-weight: normal;
+    font-size: 15px
+}
+
+h6 {
+    font-size: 100px;
 }
 
 button, .login-btn, .choose-file {
@@ -21,6 +31,26 @@ button, .login-btn, .choose-file {
     cursor: pointer;
     white-space: nowrap;
     color: white;
+}
+
+.search-many-btn {
+    width: 100%;
+    position: relative;
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+    cursor: pointer;
+    white-space: nowrap;
+    color: #999999;
+}
+
+.search-many-btn:hover {
+    background: none;
+}
+
+.submit-search-btn {
+    width: 40px;
+    height: 30px;
 }
 
 input[type="file"] {
@@ -41,11 +71,17 @@ button:hover, .login-btn:hover, .choose-file:hover {
     align-items: center;
 }
 
-.fa {
-    background: white;
+.fa-solid {
+    background: transparent;
 }
 
 /*---------------- NAVIGATION BAR ----------------*/
+
+.top-nav {
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
 
 header {
     width: 100%;
@@ -53,9 +89,14 @@ header {
     display: flex;
     align-items: start;
     justify-content: space-evenly;
+    font-size: 30px;
+    font-size: 3.5vw;
+    font-weight: bold;
+    color: #0060af;
 }
 
-header .logo {
+p, .logo {
+    font-family: 'Fredoka One', sans-serif;
     background: white;
     font-size: 30px;
     font-size: 3.5vw;
@@ -69,10 +110,11 @@ header .logo {
     align-items: center;
     padding: 5px 10px;
     border-radius: 20px;
-    margin: 20px;
+    margin: 10px;
     background: white;
     border-width: 1px;
     border-style: solid;
+    border-color: #72bf44;
 }
 
 #search {
@@ -123,7 +165,7 @@ input {
     justify-content: space-between;
     align-items: center;
     border-radius: 20px;
-    margin-right: 20px;
+    margin-right: 10px;
     width: auto;
     border-radius: 20px;
 }
@@ -291,4 +333,30 @@ cartTotal {
 .add-to-cart {
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.notfound {
+    font-family: 'Fredoka One', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.error404 {
+    font-family: 'Fredoka One', sans-serif;
+    font-size: 100px;
+}
+
+.center {
+    width: 200px;
+    height:100px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    position: absolute;
+    top: 45%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
 }
