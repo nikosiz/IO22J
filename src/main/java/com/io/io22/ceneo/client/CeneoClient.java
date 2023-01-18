@@ -10,6 +10,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class CeneoClient {
@@ -25,17 +26,7 @@ public class CeneoClient {
         this.restTemplate = restTemplate;
     }
 
-    private static String getCeneoProductsUrl(List<String> productNames, SortEnum sortEnum) {
-        return UriComponentsBuilder
-                .fromHttpUrl(URL)
-                .path(SEARCH)
-                .queryParam(PRODUCT_PARAM, productNames)
-                .queryParam(SORTING_PARAM, sortEnum.getValue())
-                .build(false)
-                .toUriString();
-    }
-
-    public List<ProductClusterDTO> queryCeneoProductsResult(List<String> productNames, SortEnum sortEnum) {
+    public List<ProductClusterDTO> queryCeneoProductsResult(List<String> productNames, Optional<SortEnum> sortEnum) {
         ResponseEntity<List<ProductClusterDTO>> exchange = restTemplate.exchange(
                 getCeneoProductsUrl(productNames, sortEnum),
                 HttpMethod.GET,
@@ -44,5 +35,15 @@ public class CeneoClient {
                 }
         );
         return exchange.getBody();
+    }
+
+    private String getCeneoProductsUrl(List<String> productNames, Optional<SortEnum> sortEnum) {
+        return UriComponentsBuilder
+                .fromHttpUrl(URL)
+                .path(SEARCH)
+                .queryParam(PRODUCT_PARAM, productNames)
+                .queryParam(SORTING_PARAM, sortEnum.orElse(SortEnum.BY_SHOPS).getValue())
+                .build(false)
+                .toUriString();
     }
 }

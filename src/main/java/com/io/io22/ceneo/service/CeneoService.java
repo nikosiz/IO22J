@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CeneoService {
@@ -17,7 +18,7 @@ public class CeneoService {
         this.ceneoClient = ceneoClient;
     }
 
-    public List<ProductClusterDTO> getCeneoProducts(List<String> searchProducts, SortEnum sortEnum) {
+    public List<ProductClusterDTO> getCeneoProducts(List<String> searchProducts, Optional<SortEnum> sortEnum) {
         if (searchProducts.isEmpty()) {
             return Collections.emptyList();
         }

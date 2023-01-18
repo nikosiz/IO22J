@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping(path = "/upload")
@@ -40,7 +41,7 @@ public class FileController {
 
     @PostMapping
     public String uploadFile(@RequestParam("file") MultipartFile file,
-                             @RequestParam("sorting") SortEnum sorting,
+                             @RequestParam("sorting") Optional<SortEnum> sorting,
                              Model model,
                              RedirectAttributes redirectAttributes,
                              @AuthenticationPrincipal OidcUser principal) {
