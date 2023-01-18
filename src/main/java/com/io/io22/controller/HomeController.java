@@ -25,7 +25,8 @@ public class HomeController {
 
     @GetMapping("/")
     public String home(Model model, @AuthenticationPrincipal OidcUser principal) {
-        //model.addAttribute("products", ceneoService.getCeneoProducts(Collections.singletonList("barbie wymarzony kamper"), SortEnum.BY_PRICE));
+        //wykomentować
+        model.addAttribute("products", ceneoService.getCeneoProducts(Collections.singletonList("barbie wymarzony kamper"), SortEnum.BY_PRICE));
         model.addAttribute("productsToSearch", new ProductSearchModel());
         return "index";
     }

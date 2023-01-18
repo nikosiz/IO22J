@@ -14,18 +14,40 @@
             integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
             src="https://code.jquery.com/jquery-3.6.3.js">
     </script>
-    <script src="/static/js/main.js" type="text/javascript"></script>
+    <script src="/js/main.js"></script>
 </head>
 <body>
 
 <div th:insert="fragments/nav :: header"></div>
 
+<div class="container">
+    <div th:each="product :${products}">
+        <table id="shopping-cart-table">
+            <h3 th:text="${product.searchProduct}"></h3>
+            <tr>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Shipping Price</th>
+                <th>Link</th>
+            </tr>
+            <tr>
+                <td th:text="${product.getResultProduct().getName()}">Product Name 1</td>
+                <td th:text="${product.getResultProduct().getOffer().getPrice()}">Price 1</td>
+                <td th:text="${product.getResultProduct().getOffer().getShippingPrice()}">Shipping Price 1</td>
+                <td th:text="${product.getResultProduct().getOffer().getSeller()}">Seller</td>
+                <td>Link 1</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!--
 <div class="img-container">
     <img src="/images/children-playing.jpg" alt="Children Laughing" style="width:100%;">
-    <div class="center">
+    <!--<div class="center">
         <h2>Welcome to ToyStores!</h2>
         <h3>Tell us what do you need</h3>
-    </div>
+    </div>-
 </div>
 <div class="container">
     <div th:each="product :${products}">
@@ -45,6 +67,8 @@
         </div>
     </div>
 </div>
+-->
+
 
 </body>
 </html>

@@ -12,30 +12,27 @@
             src="https://code.jquery.com/jquery-3.6.3.js"
             integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
             crossorigin="anonymous"></script>
-    <script>
-        $(function () {
-            $('#header').load('nav.html');
-        });
-    </script>
 </head
 >
 <body>
 
-<div id="header"></div>
+<div th:insert="fragments/nav :: header"></div>
 
-<div class="products-container">
-    <div class="product-header">
-        <h5 class="product-name">NAME</h5>
-        <h5 class="price">PRICE</h5>
-        <h5 class="quantity">QUANTITY</h5>
-        <h5 class="total">TOTAL</h5>
-        <h5 class="link">LINK</h5>
-        <h5 class="delete-item"></h5>
-    </div>
-
-    <div class="products">
-
-    </div>
+<div class="container">
+    <table id="shopping-cart-table" th:each="product :${products}">
+        <tr>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Shipping Price</th>
+            <th>Link</th>
+        </tr>
+        <tr>
+            <td th:text="${product.getResultProduct().getName()}">Product Name 1</td>
+            <td th:text="${product.getResultProduct().getName()}">Price 1</td>
+            <td th:text="${product.getResultProduct().getName()}">Shipping Price 1</td>
+            <td th:text="${product.getResultProduct().getName()}">Link 1</td>
+        </tr>
+    </table>
 </div>
 
 </body>
