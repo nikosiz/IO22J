@@ -8,24 +8,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>ToyStores - Navigation Bar</title>
     <link href="/css/styles.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet">
-
+    <link href='https://fonts.googleapis.com/css?family=Fredoka One' rel='stylesheet'>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
-
 </head>
 <body>
 
 <header class="top-nav" th:fragment="nav" style="">
 
 
-
     <!-- Trigger/Open The Modal -->
     <!--<button id="search-modal-btn">Open Modal</button>-->
 
 
-    <a style="text-decoration:none; margin-left: 20px;" th:href="@{/}">
+    <a class="logo" th:href="@{/}">
         <p>ToyStores</p>
     </a>
 
@@ -44,8 +39,8 @@
 
         <button class="search-many-btn" id="search-modal-btn" style="float: right; margin-left: 5px;"><h4>search
             many</h4></button>
-        <button type="submit" class="button" style="margin-right:5px;">Search</button>
-        <button type="submit" class="button">Reset</button>
+        <button class="submit-search-btn" type="submit" style="background-color:#ed145a"><i class="fa fa-search"></i></button>
+        <button class="button" type="submit"><i class="fa fa-trash"></i></button>
         </input>
 
         <!-- <button class="submit-search-btn" style="float: right; margin-left: 5px;" type="submit"><i
