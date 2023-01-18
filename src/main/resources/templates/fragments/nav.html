@@ -5,22 +5,24 @@
     <meta charset="UTF-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatibile">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>ToyStores - Navigation Bar</title>
     <link href="/css/styles.css" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
-           integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
-           crossorigin="anonymous" referrerpolicy="no-referrer"/>-->
-    <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap"
           rel="stylesheet">
-    <!--<script type="text/javascript" th:src="@{/static/js/main.js}"></script>-->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
 </head>
 <body>
 
 <header class="top-nav" th:fragment="nav" style="">
 
+
+
     <!-- Trigger/Open The Modal -->
-    <button id="myBtn">Open Modal</button>
+    <!--<button id="search-modal-btn">Open Modal</button>-->
 
 
     <a style="text-decoration:none; margin-left: 20px;" th:href="@{/}">
@@ -40,10 +42,11 @@
         <input id="search" type="text" name="keyword" th:value="${keyword}" placeholder="Search...">
 
 
-        <button class="search-many-btn" style="float: right; margin-left: 5px;"><h4>search many</h4></button>
-        <button type="submit" class="button" style="margin-left:10px;">Search</button>
+        <button class="search-many-btn" id="search-modal-btn" style="float: right; margin-left: 5px;"><h4>search
+            many</h4></button>
+        <button type="submit" class="button" style="margin-right:5px;">Search</button>
         <button type="submit" class="button">Reset</button>
-        </input></form>
+        </input>
 
         <!-- <button class="submit-search-btn" style="float: right; margin-left: 5px;" type="submit"><i
                  class="fa-solid fa-search"></i></button>-->
@@ -66,13 +69,16 @@
         <div id="cart">
             <a style="text-decoration:none;" th:href="@{/cart/}">
                 <div class="cart">
-                    <i class="fa-solid fa-cart-shopping" style="color:white;"></i>
+                    <i class="fa fa-shopping-cart" style="color:white;"></i>
+                    <!--<i class="fas fa-cloud" style="color:white;"></i>-->
                     <span id="count">0</span>
                 </div>
             </a>
         </div>
     </div>
 </header>
+
+<script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
 
 </body>
 </html>

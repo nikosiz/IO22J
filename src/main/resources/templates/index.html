@@ -6,9 +6,9 @@
     <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
           name="viewport">
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="/css/styles.css" rel="stylesheet">
-    <link th:href="@{/css/fontawesome/css/fontawesome.css}" rel="stylesheet">
-    <title>Shopping cart</title>
+    <title>ToyStores - Home</title>
     <script
             crossorigin="anonymous"
             integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
@@ -51,12 +51,24 @@
 </div>
 
 <!-- The Modal -->
-<div id="myModal" class="modal">
+<div id="search-many-modal" class="search-many-modal">
 
     <!-- Modal content -->
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <p>Some text in the Modal..</p>
+    <div class="search-modal-content">
+        <span class="close-modal">&times;</span>
+        <p>Type in what you are searching for...</p>
+        <p>We will find best offers for you!</p>
+
+        <div class="search-container" style="margin-left:auto;">
+
+            <form th:action="@{/search}" method="get"></form>
+            <input id="search" type="text" name="keyword" th:value="${keyword}" placeholder="Search...">
+
+            <button type="submit" class="button" style="max-width:50px;">Reset</button>
+            </input>
+
+
+        </div>
     </div>
 
 </div>
@@ -85,12 +97,12 @@
 
 <script>
 
-    var modal = document.getElementById("myModal");
+    var modal = document.getElementById("search-many-modal");
     // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
+    var btn = document.getElementById("search-modal-btn");
 
     // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
+    var span = document.getElementsByClassName("close-modal")[0];
 
     // When the user clicks on the button, open the modal
     btn.onclick = function () {
