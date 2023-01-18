@@ -13,10 +13,15 @@
     <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap"
           rel="stylesheet">
+    <!--<script type="text/javascript" th:src="@{/static/js/main.js}"></script>-->
 </head>
 <body>
 
 <header class="top-nav" th:fragment="nav" style="">
+
+    <!-- Trigger/Open The Modal -->
+    <button id="myBtn">Open Modal</button>
+
 
     <a style="text-decoration:none; margin-left: 20px;" th:href="@{/}">
         <p>ToyStores</p>
@@ -24,25 +29,24 @@
 
     <div class="search-container" style="margin-left:auto;">
 
-       <!-- <form th:action="@{/search}" method="get">
-            <input type="text" name="keyword" th:value="${keyword}" placeholder="Search...">
-            <button type="submit" class="button">Search</button>
-            <button type="submit" class="button">Reset</button>
-        </input></form>-->
-
+        <!-- <form th:action="@{/search}" method="get">
+             <input type="text" name="keyword" th:value="${keyword}" placeholder="Search...">
+             <button type="submit" class="button">Search</button>
+             <button type="submit" class="button">Reset</button>
+         </input></form>-->
 
 
         <form th:action="@{/search}" method="get"></form>
-                <input id="search" type="text" name="keyword" th:value="${keyword}" placeholder="Search...">
+        <input id="search" type="text" name="keyword" th:value="${keyword}" placeholder="Search...">
 
 
         <button class="search-many-btn" style="float: right; margin-left: 5px;"><h4>search many</h4></button>
-            <button type="submit" class="button" style="margin-left:10px;">Search</button>
-            <button type="submit" class="button">Reset</button>
-            </input></form>
+        <button type="submit" class="button" style="margin-left:10px;">Search</button>
+        <button type="submit" class="button">Reset</button>
+        </input></form>
 
-       <!-- <button class="submit-search-btn" style="float: right; margin-left: 5px;" type="submit"><i
-                class="fa-solid fa-search"></i></button>-->
+        <!-- <button class="submit-search-btn" style="float: right; margin-left: 5px;" type="submit"><i
+                 class="fa-solid fa-search"></i></button>-->
     </div>
 
     <div class="log-btn-container">

@@ -1,4 +1,14 @@
 
+
+
+
+
+
+
+
+
+
+
 let carts = document.querySelectorAll('.add-to-cart');
 
 let products = [{

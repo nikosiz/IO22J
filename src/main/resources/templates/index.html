@@ -7,48 +7,62 @@
           name="viewport">
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <link href="/css/styles.css" rel="stylesheet">
-    <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
+    <link th:href="@{/css/fontawesome/css/fontawesome.css}" rel="stylesheet">
     <title>Shopping cart</title>
     <script
             crossorigin="anonymous"
             integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
             src="https://code.jquery.com/jquery-3.6.3.js">
     </script>
-    <script src="/js/main.js"></script>
+    <!--<script type="text/javascript" th:src="@{/js/main.js}"></script>-->
 </head>
 <body>
 
 <div th:insert="fragments/nav :: header"></div>
+
+<div class="img-container">
+    <img src="/images/children-playing.jpg" alt="Children Laughing" style="width:100%;">
+    <!--<div class="center">
+        <h2>Welcome to ToyStores!</h2>
+        <h3>Tell us what do you need</h3>
+    </div>-->
+</div>
 
 <div class="container">
     <div th:each="product :${products}">
         <table id="shopping-cart-table">
             <h3 th:text="${product.searchProduct}"></h3>
             <tr>
-                <th>Product Name</th>
-                <th>Price</th>
-                <th>Shipping Price</th>
-                <th>Link</th>
+                <th class="product-name-th">Product Name</th>
+                <th class="product-price-th">Price</th>
+                <th class="product-ship-th">Shipping Price</th>
+                <th class="product-seller-th">Seller</th>
+                <!--<th>URL ?</th>-->
             </tr>
             <tr>
                 <td th:text="${product.getResultProduct().getName()}">Product Name 1</td>
                 <td th:text="${product.getResultProduct().getOffer().getPrice()}">Price 1</td>
                 <td th:text="${product.getResultProduct().getOffer().getShippingPrice()}">Shipping Price 1</td>
                 <td th:text="${product.getResultProduct().getOffer().getSeller()}">Seller</td>
-                <td>Link 1</td>
+                <!--<td th:text="${product.getResultProduct().getOffer().getRedirectUrl()}">Link 1</td>-->
             </tr>
         </table>
     </div>
 </div>
 
-<!--
-<div class="img-container">
-    <img src="/images/children-playing.jpg" alt="Children Laughing" style="width:100%;">
-    <!--<div class="center">
-        <h2>Welcome to ToyStores!</h2>
-        <h3>Tell us what do you need</h3>
-    </div>-
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Some text in the Modal..</p>
+    </div>
+
 </div>
+
+
+<!--
 <div class="container">
     <div th:each="product :${products}">
         <div class="image">
@@ -68,6 +82,34 @@
     </div>
 </div>
 -->
+
+<script>
+
+    var modal = document.getElementById("myModal");
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on the button, open the modal
+    btn.onclick = function () {
+        modal.style.display = "block";
+        console.log("chuj");
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
 
 
 </body>
