@@ -50,15 +50,17 @@ button, .login-btn, .choose-file {
     width: 100%;
     position: relative;
     border: none;
-    border-radius: 10px;
-    background-color: white;
+    border-radius: 20px;
     cursor: pointer;
     white-space: nowrap;
-    color: #999999;
+    color: white;
+    background-color: #ed145a;
+    float: right;
+    margin-left: 5px;
 }
 
 .search-btn:hover {
-    background: none;
+    background: #8d0d37;
 }
 
 input[type="file"] {
@@ -105,7 +107,7 @@ header {
 .search-container {
     display: flex;
     justify-content: space-between;
-    margin-left:auto;
+    margin-left: auto;
     align-items: center;
     padding: 5px 10px;
     border-radius: 20px;
@@ -135,6 +137,7 @@ input {
     border-radius: 20px;
     width: auto;
     margin-right: 20px;
+    margin-left: 10px;
     background: white;
 }
 
@@ -164,7 +167,6 @@ input {
     justify-content: space-between;
     align-items: center;
     border-radius: 20px;
-    margin-right: 10px;
     width: auto;
     border-radius: 20px;
 }

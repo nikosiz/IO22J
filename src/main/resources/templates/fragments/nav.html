@@ -15,16 +15,11 @@
 
 <header class="top-nav" th:fragment="nav" style="">
 
-
-    <!-- Trigger/Open The Modal -->
-    <!--<button id="search-modal-btn">Open Modal</button>-->
-
-
     <a class="logo" th:href="@{/}">
         <p>ToyStores</p>
     </a>
 
-    <div class="search-container" style="margin-left:auto;">
+    <div class="search-container">
 
         <!--<form th:action="@{/search}" method="get">
              <input type="text" name="keyword" th:value="${keyword}" placeholder="Search...">
@@ -34,21 +29,21 @@
 
 
         <!--<form method="GET" th:action="@{/searchProduct}" th:object="${productsToSearch}"></form>-->
-            <!--<input id="search" name="productsToSearch" placeholder="Search..." type="text">-->
+        <!--<input id="search" name="productsToSearch" placeholder="Search..." type="text">-->
 
-            <button class="search-btn" id="search-modal-btn" style="background-color:#ed145a;width:30px;float: right; margin-left: 5px;">
-                <i class="fa fa-search"></i>
-            </button>
-            <!--<button class="submit-search-btn" style="background-color:#ed145a" type="submit">
-                <i class="fa fa-search"></i>
-            </button>-->
-
-
-            <!--     Nie wiem co ten guzik robi, ale jeśli nie jest submitem to musi byc poza form-->
-            <!--   <button class="button" type="submit"><i class="fa fa-trash"></i></button>-->
+        <button class="search-btn" id="search-modal-btn">
+            <i class="fa fa-search"></i>
+        </button>
+        <!--<button class="submit-search-btn" style="background-color:#ed145a" type="submit">
+            <i class="fa fa-search"></i>
+        </button>-->
 
 
-            <!--</input>-->
+        <!--     Nie wiem co ten guzik robi, ale jeśli nie jest submitem to musi byc poza form-->
+        <!--   <button class="button" type="submit"><i class="fa fa-trash"></i></button>-->
+
+
+        <!--</input>-->
 
         <!-- <button class="submit-search-btn" style="float: right; margin-left: 5px;" type="submit"><i
                  class="fa-solid fa-search"></i></button>-->
@@ -57,12 +52,12 @@
     <div class="log-btn-container">
         <div sec:authorize="!isAuthenticated()">
             <a th:href="@{/oauth2/authorization/auth0}">
-                <button class="login-btn">Login</button>
+                <button class="login-btn" style="margin-left:5px"><i class="fa fa-user"></i></button>
             </a>
         </div>
         <div sec:authorize="isAuthenticated()">
             <a class="login-btn" th:href="@{/logout}">
-                <button class="login-btn">Log out</button>
+                <button class="login-btn" style="margin-left:5px">Log out</button>
             </a>
         </div>
     </div>
