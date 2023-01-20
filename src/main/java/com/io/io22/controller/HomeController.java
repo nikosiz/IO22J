@@ -9,10 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.Collections;
+import java.util.Objects;
+import java.util.Optional;
 
 @Controller
 public class HomeController {
@@ -25,21 +25,19 @@ public class HomeController {
 
     @GetMapping("/")
     public String home(Model model, @AuthenticationPrincipal OidcUser principal) {
-        //wykomentować
-        //model.addAttribute("products", ceneoService.getCeneoProducts(Collections.singletonList("barbie wymarzony kamper"), SortEnum.BY_PRICE));
         model.addAttribute("productsToSearch", new ProductSearchModel());
         return "index";
     }
 
-    @PostMapping("/")
-    public String getProducts(@RequestParam("sorting") SortEnum sorting,
+    @GetMapping("/searchProduct")
+    public String getProducts(@RequestParam(name = "sorting") Optional<SortEnum> sorting,
                               ProductSearchModel productSearchModel,
                               BindingResult result,
                               Model model) {
-        if (result.hasErrors()) {
+        if (result.hasErrors() || Objects.isNull(productSearchModel)) {
             return "index";
         }
-        model.addAttribute("products", ceneoService.getCeneoProducts(productSearchModel.getAllProducts(), sorting));
+        model.addAttribute("products", ceneoService.getCeneoProducts(productSearchModel.getProductsToSearch(), sorting));
         return "index";
     }
 

@@ -31,6 +31,9 @@ public class OfferEntity {
 
     private String redirectURL;
 
+    public OfferEntity() {
+    }
+
     public OfferEntity(String name, Double price, Double shippingPrice, String seller, String thumbnailUrl, String redirectURL) {
         this.name = name;
         this.price = price;
@@ -38,5 +41,33 @@ public class OfferEntity {
         this.seller = seller;
         this.thumbnailUrl = thumbnailUrl;
         this.redirectURL = redirectURL;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public Double getShippingPrice() {
+        return shippingPrice;
+    }
+
+    public String getSeller() {
+        return seller;
+    }
+
+    public String getThumbnailUrl() {
+        return thumbnailUrl;
+    }
+
+    public String getRedirectURL() {
+        return redirectURL;
     }
 }
