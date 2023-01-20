@@ -26,28 +26,29 @@
 
     <div class="search-container" style="margin-left:auto;">
 
-        <!-- <form th:action="@{/search}" method="get">
+        <!--<form th:action="@{/search}" method="get">
              <input type="text" name="keyword" th:value="${keyword}" placeholder="Search...">
              <button type="submit" class="button">Search</button>
              <button type="submit" class="button">Reset</button>
          </input></form>-->
 
 
-        <form method="GET" th:action="@{/searchProduct}" th:object="${productsToSearch}">
-            <input id="search" name="productsToSearch" placeholder="Search..." type="text">
+        <!--<form method="GET" th:action="@{/searchProduct}" th:object="${productsToSearch}"></form>-->
+            <!--<input id="search" name="productsToSearch" placeholder="Search..." type="text">-->
 
-            <button class="search-many-btn" id="search-modal-btn" style="float: right; margin-left: 5px;"><h4>search
-                many</h4></button>
-            <button class="submit-search-btn" style="background-color:#ed145a" type="submit"><i
-                    class="fa fa-search"></i></button>
+            <button class="search-btn" id="search-modal-btn" style="background-color:#ed145a;width:30px;float: right; margin-left: 5px;">
+                <i class="fa fa-search"></i>
+            </button>
+            <!--<button class="submit-search-btn" style="background-color:#ed145a" type="submit">
+                <i class="fa fa-search"></i>
+            </button>-->
 
 
             <!--     Nie wiem co ten guzik robi, ale jeśli nie jest submitem to musi byc poza form-->
             <!--   <button class="button" type="submit"><i class="fa fa-trash"></i></button>-->
 
 
-            </input>
-        </form>
+            <!--</input>-->
 
         <!-- <button class="submit-search-btn" style="float: right; margin-left: 5px;" type="submit"><i
                  class="fa-solid fa-search"></i></button>-->

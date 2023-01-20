@@ -57,15 +57,35 @@
     <div class="search-modal-content">
         <span class="close-modal">&times;</span>
         <p>Type in what you are searching for...</p>
-        <p>We will find best offers for you!</p>
 
         <div class="search-container" style="margin-left:auto;">
 
-            <form th:action="@{/search}" method="get"></form>
-            <input id="search" type="text" name="keyword" th:value="${keyword}" placeholder="Search...">
+            <!--<form th:action="@{/search}" method="get"></form>-->
 
-            <button type="submit" class="button" style="max-width:50px;">Reset</button>
-            </input>
+            <form method="GET" th:action="@{/searchProduct}" th:object="${productsToSearch}">
+                <input id="search" name="productsToSearch" placeholder="Search..." type="text">
+
+                <button class="search-btn" id="search-modal-btn" style="float: right; margin-left: 5px;">
+                    <i class="fa fa-search"></i>
+                </button>
+                <!--<button class="submit-search-btn" style="background-color:#ed145a" type="submit">
+                    <i class="fa fa-search"></i>
+                </button>-->
+
+
+                <!--     Nie wiem co ten guzik robi, ale jeśli nie jest submitem to musi byc poza form-->
+                <!--   <button class="button" type="submit"><i class="fa fa-trash"></i></button>-->
+
+
+                </input>
+            </form>
+
+
+            <!--<input id="search" type="text" name="keyword" th:value="${keyword}" placeholder="Search...">
+            <button class="submit-search-btn" style="background-color:#ed145a" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+            </input>-->
 
 
         </div>

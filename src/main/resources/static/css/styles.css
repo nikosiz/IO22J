@@ -46,7 +46,7 @@ button, .login-btn, .choose-file {
     color: white;
 }
 
-.search-many-btn {
+.search-btn {
     width: 100%;
     position: relative;
     border: none;
@@ -57,7 +57,7 @@ button, .login-btn, .choose-file {
     color: #999999;
 }
 
-.search-many-btn:hover {
+.search-btn:hover {
     background: none;
 }
 
@@ -110,9 +110,6 @@ header {
     padding: 5px 10px;
     border-radius: 20px;
     background: white;
-    border-width: 1px;
-    border-style: solid;
-    border-color: lightgrey;
 }
 
 .submit-search-btn {
