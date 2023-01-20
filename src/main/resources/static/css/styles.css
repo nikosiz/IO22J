@@ -102,8 +102,6 @@ header {
     color: #0060af;
 }
 
-
-
 .search-container {
     display: flex;
     justify-content: space-between;
@@ -441,4 +439,39 @@ cartTotal {
     text-align: left;
     background-color: #72bf44;
     color: white;
+}
+
+.search-history-table {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #72bf44;
+    color: white;
+}
+
+.account-wrapper {
+    border: 1px solid blue;
+    margin:20px;
+    min-width:10%;
+    justify-items: center;
+    align-items: center ;
+}
+
+.history-container {
+    display: inline-block;
+    justify-items: center;
+
+    max-width: 60%;
+    height: 100%;
+    border: 1px solid red;
+}
+
+.account-container {
+    vertical-align: top;
+    display: inline-block;
+    justify-items: center;
+    min-width:10%;
+    max-width: 20%;
+    height: 100%;
+    border: 1px solid green;
 }
