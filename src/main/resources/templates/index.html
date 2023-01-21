@@ -53,43 +53,19 @@
 <!-- The Modal -->
 <div id="search-many-modal" class="search-many-modal">
 
-    <div class="search-many-modal">
-        <div class="search-container">
-            <form action="/action_page.php">
-                <input type="text" placeholder="Search.." name="search">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-        </div>
-    </div>
-
-
-
-
-
-
-
-
     <!-- Modal content -->
     <div class="search-modal-content">
         <span class="close-modal">&times;</span>
         <p>Type in what you are searching for...</p>
-
-
-
-
-
-
-
-
 
         <div class="search-container" style="margin-left:auto;">
 
             <!--<form th:action="@{/search}" method="get"></form>-->
 
             <form method="GET" th:action="@{/searchProduct}" th:object="${productsToSearch}">
-                <input id="search" name="productsToSearch" placeholder="Search..." type="text">
+                <input name="productsToSearch" placeholder="Search..." type="text">
 
-                <button class="search-btn" id="search-modal-btn" style="float: right; margin-left: 5px;" type="submit">
+                <button id="search-modal-btn" style="float: right;" type="submit">
                     <i class="fa fa-search"></i>
                 </button>
                 <!--<button class="submit-search-btn" style="background-color:#ed145a" type="submit">
