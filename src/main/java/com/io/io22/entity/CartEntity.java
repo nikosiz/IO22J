@@ -13,7 +13,7 @@ import javax.persistence.Table;
 import java.util.List;
 
 @Entity
-@Table(name = "user_carts")
+@Table(name = "user_cart")
 public class CartEntity {
 
     @Id

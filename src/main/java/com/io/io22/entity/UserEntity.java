@@ -1,5 +1,7 @@
 package com.io.io22.entity;
 
+import org.hibernate.annotations.ColumnDefault;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -12,6 +14,8 @@ public class UserEntity {
 
     @Id
     @Column(name = "id")
+    @ColumnDefault("uuid_generate_v4()")
+
     private UUID id;
 
     @Column(name = "nickname")
@@ -24,6 +28,7 @@ public class UserEntity {
     private String password;
 
     @Column(name = "email_verified")
+    @ColumnDefault("false")
     private Boolean emailVerified;
 
     public String getEmail() {

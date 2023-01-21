@@ -32,6 +32,9 @@ public class SearchHistoryEntity {
     @ElementCollection
     private Collection<String> productEntity;
 
+    public SearchHistoryEntity() {
+    }
+
     public SearchHistoryEntity(LocalDateTime clusterSearchDate, UserEntity userEntity, Collection<String> productEntity) {
         this.clusterSearchDate = clusterSearchDate;
         this.userEntity = userEntity;

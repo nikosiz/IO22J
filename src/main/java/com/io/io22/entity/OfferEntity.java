@@ -17,18 +17,22 @@ public class OfferEntity {
     @Column(name = "id")
     private Long id;
 
+    @Column(name = "name")
     private String name;
 
+    @Column(name = "price")
     private Double price;
 
     @Column(name = "shipping_price")
     private Double shippingPrice;
 
+    @Column(name = "seller")
     private String seller;
 
     @Column(name = "thumbnail_link")
     private String thumbnailUrl;
 
+    @Column(name = "redirect_url")
     private String redirectURL;
 
     public OfferEntity() {

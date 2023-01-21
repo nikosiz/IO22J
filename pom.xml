@@ -10,6 +10,7 @@
     </parent>
     <groupId>com.io</groupId>
     <artifactId>IO22</artifactId>
+    <packaging>war</packaging>
     <version>0.0.1-SNAPSHOT</version>
     <name>IO22</name>
     <description>IO22</description>

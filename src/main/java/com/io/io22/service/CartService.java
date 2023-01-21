@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -35,10 +34,8 @@ public class CartService {
     }
 
     public CartEntity getUserCarts(OidcUser principal) {
-        if (Objects.isNull(principal)) {
-            throw new UserNotFoundException();
-        }
-        return getUserCart(principal.getEmail()).orElseThrow(UserNotFoundException::new);
+        return getUserCart(principal.getEmail())
+                .orElseThrow(UserNotFoundException::new);
     }
 
     private Optional<CartEntity> getUserCart(String email) {

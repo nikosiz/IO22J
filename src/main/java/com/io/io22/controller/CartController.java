@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.Collections;
+import java.util.Objects;
 
 @Controller
 @RequestMapping(path = "/cart")
@@ -28,8 +28,10 @@ public class CartController {
     @GetMapping
     public String getCart(Model model,
                           @AuthenticationPrincipal OidcUser principal) {
-        //  model.addAttribute("cartOffers", cartService.getUserCarts(principal).getOffers());
-        model.addAttribute("cartOffers", Collections.emptyList());
+        if (Objects.isNull(principal)) {
+            return "shopping-cart";
+        }
+        model.addAttribute("cartOffers", cartService.getUserCarts(principal).getOffers());
         return "shopping-cart";
     }
 
