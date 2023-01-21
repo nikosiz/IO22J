@@ -73,45 +73,20 @@
     <div class="search-modal-content">
         <span class="close-modal">&times;</span>
         <p>Type in what you are searching for...</p>
-
-
-
-
-
-
-
-
-
         <div class="search-container" style="margin-left:auto;">
-
-            <!--<form th:action="@{/search}" method="get"></form>-->
-
-            <form method="GET" th:action="@{/searchProduct}" th:object="${productsToSearch}">
-                <input id="search" name="productsToSearch" placeholder="Search..." type="text">
-
-                <button class="search-btn" id="search-modal-btn" style="float: right; margin-left: 5px;" type="submit">
-                    <i class="fa fa-search"></i>
-                </button>
-                <!--<button class="submit-search-btn" style="background-color:#ed145a" type="submit">
-                    <i class="fa fa-search"></i>
-                </button>-->
-
-                <!--     Nie wiem co ten guzik robi, ale jeśli nie jest submitem to musi byc poza form-->
-                <!--   <button class="button" type="submit"><i class="fa fa-trash"></i></button>-->
-
-                </input>
-            </form>
-
-
-            <!--<input id="search" type="text" name="keyword" th:value="${keyword}" placeholder="Search...">
-            <button class="submit-search-btn" style="background-color:#ed145a" type="submit">
-                <i class="fa fa-search"></i>
-            </button>
-            </input>-->
-
+            <div class="buttons-container">
+                <form method="GET" th:action="@{/searchProduct}" th:object="${productsToSearch}">
+                    <div id="input-fields-container">
+                        <input id="search" name="productsToSearch" placeholder="Search..." type="text">
+                    </div>
+                    <button type="button" id="add-field-btn">Add Field</button>
+                    <button class="search-btn" id="search-modal-btn" type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
-
 </div>
 
 
@@ -141,6 +116,39 @@
     var modal = document.getElementById("search-many-modal");
     // Get the button that opens the modal
     var btn = document.getElementById("search-modal-btn");
+
+    // Get the add field button
+    var addFieldBtn = document.getElementById("add-field-btn");
+    // Add an event listener to the button
+    addFieldBtn.addEventListener("click", function(event) {
+        event.preventDefault();
+        // Create a new div element
+        var fieldContainer = document.createElement("div");
+        fieldContainer.classList.add("field-container");
+        // Create a new input field
+        var input = document.createElement("input");
+        input.name = "productsToSearch";
+        input.placeholder = "Search...";
+        input.type = "text";
+        // Create a delete button for the input field
+        var deleteBtn = document.createElement("button");
+        deleteBtn.innerHTML = "Delete";
+        deleteBtn.classList.add("delete-field-btn");
+        // Append the input field and delete button to the container
+        fieldContainer.appendChild(input);
+        fieldContainer.appendChild(deleteBtn);
+        var container = document.getElementById("input-fields-container");
+        container.appendChild(fieldContainer);
+    });
+
+    var container = document.getElementById("input-fields-container");
+    container.addEventListener("click", function(event) {
+        if (event.target.classList.contains("delete-field-btn")) {
+            var inputField = event.target.previousSibling;
+            inputField.remove();
+            event.target.remove();
+        }
+    });
 
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close-modal")[0];

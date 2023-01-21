@@ -112,6 +112,7 @@ header {
     padding: 5px 10px;
     border-radius: 20px;
     background: white;
+    flex-direction: column;
 }
 
 .submit-search-btn {
@@ -126,8 +127,30 @@ header {
     background: white;
 }
 
+#add-field-btn {
+    order: -1;
+}
+
 input {
     font-size: 1rem;
+}
+
+#input-fields-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#input-fields-container input {
+    margin-bottom: 10px;
+}
+
+.field-container {
+    display: flex;
+    align-items: center;
+}
+
+.field-container input {
+    margin-right: 10px;
 }
 
 #cart-container {
@@ -380,7 +403,7 @@ cartTotal {
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 60%; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button */
