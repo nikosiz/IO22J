@@ -73,6 +73,14 @@
                     <div id="input-fields-container">
                         <input id="search" name="productsToSearch" placeholder="Search..." type="text">
                     </div>
+                    <div th:object="${sorting}">
+                        <label for="option1">
+                            <input type="radio" name="sorting" value="BY_SHOPS" id="option1"> By Shops
+                        </label>
+                        <label for="option2">
+                            <input type="radio" name="sorting" value="BY_PRICE" id="option2"> By Price
+                        </label>
+                    </div>
                     <button type="button" id="add-field-btn">Add Field</button>
                     <button class="search-btn" id="search-modal-btn" type="submit">
                         <i class="fa fa-search"></i>
@@ -145,6 +153,29 @@
             container.appendChild(fieldContainer);
             fieldCount = fieldCount + 1;
         }
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        // Select the form element
+        var form = document.querySelector("form");
+        // Add the submit event listener to the form
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+            var selectedOption = document.querySelector("input[name='sorting']:checked");
+            selectedOption.parentElement.classList.add("selected");
+        });
+    });
+
+    var options = document.querySelectorAll("input[name='sorting']");
+    options.forEach(function(option) {
+        option.addEventListener("change", function() {
+            var selectedOption = document.querySelector("input[name='sorting']:checked");
+            var allOptionLabels = document.querySelectorAll("label");
+            allOptionLabels.forEach(function(label) {
+                label.classList.remove("selected");
+            });
+            selectedOption.parentElement.classList.add("selected");
+        });
     });
 
     console.log(fieldCount);
