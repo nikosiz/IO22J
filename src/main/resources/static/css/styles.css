@@ -406,6 +406,41 @@ cartTotal {
     width: 60%; /* Could be more or less, depending on screen size */
 }
 
+input[type="radio"] {
+    display: none;
+}
+
+label {
+    display: inline-block;
+    position: relative;
+    padding-left: 25px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+label:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+}
+
+input[type="radio"]:checked + label:before {
+    content: "";
+    background: #333;
+    border-radius: 50%;
+}
+
+label.selected:before {
+    content: "";
+    background: #333;
+    border-radius: 50%;
+}
+
 /* The Close Button */
 .close-modal {
     color: #aaa;
