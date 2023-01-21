@@ -464,7 +464,7 @@ label.selected:before {
     border-top-right-radius: 20px
 }
 
-#shopping-cart-table {
+.shopping-cart-table {
     font-family: 'Roboto', sans-serif;
     border-collapse: collapse;
     width: 100%;
@@ -529,6 +529,6 @@ label.selected:before {
     border-radius: 20px;
 }
 
-#add-field-btn, {
+#add-field-btn {
     margin-top:10px;
 }

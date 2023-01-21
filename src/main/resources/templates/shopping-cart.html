@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Shopping Cart - ToyStores</title>
     <meta charset="UTF-8">
@@ -19,14 +20,40 @@
 
 <div th:insert="fragments/nav :: header"></div>
 
-<div class="container">
+<!-- Koszyk użytkownika, który posiada konto. -->
+<div class="container" sec:authorize="isAuthenticated()">
     <div th:if="${cartOffers==null or cartOffers.isEmpty()}">
         <p>Your cart is empty :(</p>
     </div>
 
     <div th:if="${cartOffers!=null and !cartOffers.isEmpty()}">
 
-        <table id="shopping-cart-table" th:each="offer :${cartOffers}">
+        <table class="shopping-cart-table" th:each="offer :${cartOffers}">
+            <tr>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Shipping Price</th>
+                <th>Link</th>
+            </tr>
+            <tr>
+                <td th:text="${offer.getName()}">Product Name 1</td>
+                <td th:text="${offer.getPrice()}">Price 1</td>
+                <td th:text="${offer.getShippingPrice()}">Shipping Price 1</td>
+                <td th:text="${offer.getRedirectURL()}">Link 1</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Koszyk użytkownika, który nie posiada konta.-->
+<div class="container" sec:authorize="!isAuthenticated()">
+    <div th:if="${cartOffers==null or cartOffers.isEmpty()}">
+        <p>Your cart is empty :(</p>
+    </div>
+
+    <div th:if="${cartOffers!=null and !cartOffers.isEmpty()}">
+
+        <table class="shopping-cart-table" th:each="offer :${cartOffers}">
             <tr>
                 <th>Product Name</th>
                 <th>Price</th>
