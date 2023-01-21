@@ -1,7 +1,6 @@
 package com.io.io22.ceneo.client;
 
 import com.io.io22.ceneo.dto.ProductClusterDTO;
-import com.io.io22.utils.HostUtils;
 import com.io.io22.utils.SortEnum;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
@@ -16,7 +15,7 @@ import java.util.Optional;
 @Component
 public class CeneoClient {
 
-    private static final String URL = "http://" + HostUtils.getHostAddress() + ":5000/";
+    private static final String URL = "http://localhost:5000/";
     private static final String SEARCH = "search";
     private static final String PRODUCT_PARAM = "product";
     private static final String SORTING_PARAM = "sorting";
