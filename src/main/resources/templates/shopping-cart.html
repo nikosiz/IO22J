@@ -45,7 +45,7 @@
     </div>
 </div>
 
-<!-- Koszyk użytkownika, który nie posiada konta.-->
+<!-- Koszyk użytkownika, który nie posiada konta. To trzeba przerobić-->
 <div class="container" sec:authorize="!isAuthenticated()">
     <div th:if="${cartOffers==null or cartOffers.isEmpty()}">
         <p>Your cart is empty :(</p>

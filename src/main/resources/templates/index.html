@@ -45,6 +45,8 @@
                 <td th:text="${product.getResultProduct().getOffer().getShippingPrice()}">Shipping Price 1</td>
                 <td th:text="${product.getResultProduct().getOffer().getSeller()}">Seller</td>
                 <!--<td th:text="${product.getResultProduct().getOffer().getRedirectUrl()}">Link 1</td>-->
+                <!--Dodawanie produktu do koszyka-->
+                <td><form method="POST" th:action="@{cart/add}" th:object="${product}"><button><i class="fa fa-add"></i></button></td>
             </tr>
         </table>
     </div>
@@ -61,7 +63,6 @@
             </form>
         </div>
     </div>
-
 
     <!-- Modal content -->
     <div class="search-modal-content">
