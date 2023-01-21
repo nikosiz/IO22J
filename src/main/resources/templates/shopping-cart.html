@@ -3,25 +3,25 @@
 <head>
     <title>Shopping Cart - ToyStores</title>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="/css/styles.css" rel="stylesheet">
-    <link href="/css/fontawesome/css/fontawesome.css" rel="stylesheet">
-    <title>Shopping cart</title>
+    <title>Home - ToyStores</title>
     <script
-            src="https://code.jquery.com/jquery-3.6.3.js"
+            crossorigin="anonymous"
             integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
-            crossorigin="anonymous"></script>
-</head
->
+            src="https://code.jquery.com/jquery-3.6.3.js">
+    </script>
+</head>
 <body>
 
 <div th:insert="fragments/nav :: header"></div>
 
 <div class="container">
     <div th:if="${cartOffers==null or cartOffers.isEmpty()}">
-        Cart is empty kurwa
+        <p>Your cart is empty :(</p>
     </div>
 
     <div th:if="${cartOffers!=null and !cartOffers.isEmpty()}">
