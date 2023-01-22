@@ -17,18 +17,26 @@
 
 <div th:insert="fragments/nav :: header"></div>
 
-<div id="search-history-container" class="container">
-
-    <!--Wyświetlenie historii wyszukiwania -->
-    <table id="results-table" style="margin-left:50px;margin-right:50px;" class="shopping-cart-table" th:each="offer :${cartOffers}">
-        <h3 th:text="${product.searchProduct}"></h3>
-        <tr class="products-1st-row">
-            <th class="product-name-th">Searched phrase</th>
-        </tr>
-        <tr>
-            <td th:text="${offer.getName()}" id="product-name">*Searched phrase*</td>
-    </table>
+<div class="container" style="padding-left:200px;padding-right:200px;
+    margin-left: auto;
+    margin-right: auto">
+    <button>      logout    </button>
 </div>
+
+<div id="search-history-container" class="container" style="margin-top: -5px;">
+    <div>
+
+        <!--Wyświetlenie historii wyszukiwania -->
+        <table class="search-history-table" id="results-table" style="margin-left:auto;margin-right:auto;" th:each="offer :${cartOffers}">
+            <h3 th:text="${product.searchProduct}"></h3>
+            <tr class="products-1st-row">
+                <th class="product-name-th">Searched phrase</th>
+            </tr>
+            <tr style="text-align:center;">
+                <td th:text="${offer.getName()}" id="product-name">*Searched phrase*</td>
+        </table>
+
+    </div>
 </div>
 
 <div th:insert="fragments/modal :: div"></div>

@@ -488,7 +488,6 @@ cartTotal {
 }
 
 
-
 .results-table {
     font-family: 'Roboto', sans-serif;
     border-collapse: collapse;
@@ -519,11 +518,11 @@ cartTotal {
 }
 
 .search-history-table {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #72bf44;
-    color: white;
+    font-family: 'Roboto', sans-serif;
+    border-collapse: collapse;
+    min-width: 100%;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .account-wrapper {
