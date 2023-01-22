@@ -1,5 +1,7 @@
 package com.io.io22.controller;
 
+import com.io.io22.entity.CartEntity;
+import com.io.io22.entity.OfferEntity;
 import com.io.io22.mapper.OfferMapper;
 import com.io.io22.model.ProductModel;
 import com.io.io22.service.CartService;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.List;
 import java.util.Objects;
 
 @Controller
@@ -31,7 +34,10 @@ public class CartController {
         if (Objects.isNull(principal)) {
             return "shopping-cart";
         }
-        model.addAttribute("cartOffers", cartService.getUserCarts(principal).getOffers());
+        List<OfferEntity> offers = cartService.getUserCart(principal.getEmail())
+                .orElse(new CartEntity())
+                .getOffers();
+        model.addAttribute("cartOffers", offers);
         return "shopping-cart";
     }
 
