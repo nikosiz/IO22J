@@ -9,7 +9,7 @@
 /* ---------- MAIN SETTINGS ----------*/
 
 h1 {
-    font-family: 'Fredoka One';
+    font-family: 'Fredoka One', sans-serif;
     font-size: 30px;
     font-size: 3.5vw;
     color: #0060af;
@@ -219,9 +219,7 @@ label.selected:before {
     appearance: none;
     padding: 5px 10px;
     background: white;
-    border-style: solid;
-    border-width: 2px;
-    border-color: #999;
+    border: solid 2px #999;
 }
 
 #search {
@@ -231,9 +229,7 @@ label.selected:before {
     appearance: none;
     padding: 5px 10px;
     background: white;
-    border-style: solid;
-    border-width: 2px;
-    border-color: #999;
+    border: solid 2px #999;
 }
 
 .add-field-btn {
