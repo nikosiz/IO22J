@@ -18,6 +18,14 @@
 
 <div th:insert="fragments/nav :: header"></div>
 
+<div class="img-container">
+    <img src="/images/girl-playing.jpg" alt="Children Laughing" style="width:100%;">
+    <!--<div class="center">
+        <h2>Welcome to ToyStores!</h2>
+        <h3>Tell us what do you need</h3>
+    </div>-->
+</div>
+
 <div class="container">
     <div th:if="${cartOffers==null or cartOffers.isEmpty()}">
         <p>Your cart is empty :(</p>
