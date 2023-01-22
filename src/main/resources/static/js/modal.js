@@ -41,12 +41,12 @@ addFieldBtn.addEventListener("click", function (event) {
 
 document.addEventListener("DOMContentLoaded", function () {
     // Select the form element
-    var form = document.querySelector("form");
+    var form = document.querySelector("form")[1];
     // Add the submit event listener to the form
     form.addEventListener("submit", function (event) {
         event.preventDefault();
         var selectedOption = document.querySelector("input[name='sorting']:checked");
-        selectedOption.parentElement.classList.add("selected");
+        selectedOption.classList.add("selected");
     });
 });
 
