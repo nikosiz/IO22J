@@ -45,8 +45,21 @@
                 <td th:text="${product.getResultProduct().getOffer().getShippingPrice()}">Shipping Price 1</td>
                 <td th:text="${product.getResultProduct().getOffer().getSeller()}">Seller</td>
                 <!--<td th:text="${product.getResultProduct().getOffer().getRedirectUrl()}">Link 1</td>-->
-                <!--Dodawanie produktu do koszyka-->
-                <td><form method="POST" th:action="@{cart/add}" th:object="${product}"><button><i class="fa fa-add"></i></button></td>
+
+                <div sec:authorize="!isAuthenticated()">
+                    <!--Dodawanie produktu do koszyka dla użytkownika niezalogowanego-->
+                    <td>
+                        <button class="add-to-cart">Add to cart</button>
+                    </td>
+                </div>
+
+                <div sec:authorize="isAuthenticated()">
+                    <!--Dodawanie produktu do koszyka dla użytkownika zalogowanego-->
+                    <td>
+                        <form method="POST" th:action="@{cart/add}" th:object="${product}">
+                            <button>Add to cart</button>
+                    </td>
+                </div>
             </tr>
         </table>
     </div>
@@ -73,7 +86,7 @@
             <div class="buttons-container">
                 <form method="GET" th:action="@{/searchProduct}" th:object="${productsToSearch}">
                     <div id="input-fields-container">
-                        <input id="search" name="productsToSearch" placeholder="Search..." type="text">
+                        <input class="search" name="productsToSearch" placeholder="Search..." type="text">
                     </div>
                     <div th:object="${sorting}">
                         <label for="option1">
@@ -138,6 +151,7 @@
 
             // Create a new input field
             var input = document.createElement("input");
+            input.class="search";
             input.name = "productsToSearch";
             input.placeholder = "Search...";
             input.type = "text";
