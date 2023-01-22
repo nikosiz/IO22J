@@ -38,9 +38,11 @@
                th:each="offer :${cartOffers}">
             <h3 th:text="${offer.getName()}"></h3>
             <tr class="products-1st-row">
-                <th class="product-name-th">Product Name</th>
+                <th class="product-name-th" style="border-top-left-radius:17px;">Product Name</th>
                 <th class="product-price-th">Price</th>
                 <th th:text="${offer.getRedirectURL()}" class="product-seller-th">Link</th>
+                <th style="border-top-right-radius:17px;"></th>
+                <th style="border-top-right-radius:17px;"></th>
                 <!--<th>URL ?</th>-->
             </tr>
             <tr>
@@ -49,7 +51,7 @@
                 </td>
                 <td th:text="${offer.getPrice()}" id="product-price">Price 1</td>
                 <!--<td th:text="${offer.getResultProduct().getOffer().getSeller()}" id="product-seller">Seller</td>-->
-                <td th:text="${offer.getRedirectURL()}">Link 1</td>
+                <td th:text="Go to seller"><a th:href="${offer.getRedirectURL()}">Link 1</td>
                 <!--<td th:text="${product.getResultProduct().getOffer().getRedirectUrl()}">Link 1</td>-->
 
                 <!--Usuwanie produktu z koszyka dla użytkownika niezalogowanego-->
@@ -67,15 +69,17 @@
                     </td>
                 </div>
             </tr>
-            <tr class="products-1st-row">
+            <tr>
+                <td></td>
                 <td></td>
                 <th>Shipping</th>
                 <th>10</th>
             </tr>
-            <tr class="products-1st-row">
+            <tr>
+                <td></td>
                 <td></td>
                 <th>Total price</th>
-                <th th:text="${offer.getShippingPrice()}">1000</th>
+                <th th:text="${offer.getShippingPrice()}" style="border-bottom-right-radius:17px;">1000</th>
             </tr>
         </table>
     </div>
