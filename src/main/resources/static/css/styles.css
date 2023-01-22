@@ -26,6 +26,14 @@ h4 {
 
 h6 {
     font-size: 100px;
+    font-size: 3.5vw;
+}
+
+h69 {
+    font-family: 'Fredoka One', sans-serif;
+    font-size: 30px;
+    font-weight:bold;
+
 }
 
 .logo {
@@ -450,13 +458,13 @@ label:before {
 
 input[type="radio"]:checked + label:before {
     content: "";
-    background: #333;
+    background: #0060af;
     border-radius: 50%;
 }
 
 label.selected:before {
     content: "";
-    background: #333;
+    background: #0060af;
     border-radius: 50%;
 }
 
@@ -534,10 +542,6 @@ label.selected:before {
     max-width: 20%;
     height: 100%;
     border: 1px solid green;
-}
-
-.field-container {
-    border-radius: 20px;
 }
 
 #add-field-btn {
