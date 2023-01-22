@@ -30,7 +30,11 @@ public class WebSecurityConfiguration  {
                 .and()
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .addLogoutHandler(logoutHandler);
+                .addLogoutHandler(logoutHandler)
+                .and()
+                .cors()
+                .and()
+                .csrf();
         return http.build();
     }
 

@@ -1,6 +1,6 @@
 package com.io.io22.ceneo.client;
 
-import com.io.io22.ceneo.dto.ProductClusterDTO;
+import com.io.io22.dto.ProductClusterDTO;
 import com.io.io22.utils.SortEnum;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;

@@ -32,10 +32,14 @@ public class HomeController {
     @GetMapping("/searchProduct")
     public String getProducts(@RequestParam(name = "sorting") Optional<SortEnum> sorting,
                               ProductSearchModel productSearchModel,
+                              @AuthenticationPrincipal OidcUser principal,
                               BindingResult result,
                               Model model) {
         if (result.hasErrors() || Objects.isNull(productSearchModel)) {
             return "index";
+        }
+        if (!Objects.isNull(principal)) {
+            model.addAttribute("userEmail", principal.getEmail());
         }
         model.addAttribute("products", ceneoService.getCeneoProducts(productSearchModel.getProductsToSearch(), sorting));
         return "index";

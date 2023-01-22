@@ -1,7 +1,7 @@
 package com.io.io22.controller;
 
-import com.io.io22.ceneo.dto.ProductClusterDTO;
 import com.io.io22.ceneo.service.CeneoService;
+import com.io.io22.dto.ProductClusterDTO;
 import com.io.io22.service.FileService;
 import com.io.io22.service.SearchHistoryService;
 import com.io.io22.utils.SortEnum;

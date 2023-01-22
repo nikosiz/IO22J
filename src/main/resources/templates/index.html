@@ -3,6 +3,8 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta id="_csrf" name="_csrf" th:content="${_csrf.token}"/>
+    <meta id="_csrf_header" name="_csrf_header" th:content="${_csrf.headerName}"/>
     <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
           name="viewport">
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
@@ -33,7 +35,7 @@
 
         <!--Wyświetlenie wyników wyszukiwania-->
         <table id="results-table" style="margin-left:50px;margin-right:50px;">
-            <h3 th:text="Results for ${product.searchProduct}"></h3>
+            <h3 th:text="${product.searchProduct}"></h3>
             <tr class="products-1st-row">
                 <th class="product-name-th">Product Name</th>
                 <th class="product-price-th">Price</th>
@@ -50,7 +52,6 @@
                     Shipping Price 1
                 </td>
                 <td th:text="${product.getResultProduct().getOffer().getSeller()}" id="product-seller">Seller</td>
-                <!--<td th:text="${product.getResultProduct().getOffer().getRedirectUrl()}">Link 1</td>-->
 
                 <div sec:authorize="!isAuthenticated()">
                     <!--Dodawanie produktu do koszyka dla użytkownika niezalogowanego-->
@@ -62,8 +63,9 @@
                 <div sec:authorize="isAuthenticated()">
                     <!--Dodawanie produktu do koszyka dla użytkownika zalogowanego-->
                     <td>
-                        <form method="POST" th:action="@{cart/add}" th:object="${product}">
-                            <button>Add to cart</button>
+                        <button th:attr="onclick='addToCart(\'' + ${product.getResultProduct().getName()}+  '\',\'' + ${product.getResultProduct().getOffer().getPrice()}+  '\', \'' + ${product.getResultProduct().getOffer().getShippingPrice()}+  '\',\'' + ${product.getResultProduct().getOffer().getSeller()}+  '\',\'' + ${product.getResultProduct().getThumbnailUrl()}+  '\',\'' + ${product.getResultProduct().getOffer().getRedirectUrl()}+  '\',\'' + ${userEmail}+  '\');'">
+                            Add to cart
+                        </button>
                     </td>
                 </div>
             </tr>
@@ -115,7 +117,9 @@
 
 <div th:insert="fragments/modal :: div"></div>
 
-<script src="/js/modal.js"></script>
+<script src="/js/modal.js">
+
+</script>
 
 <!--
 <div class="container">

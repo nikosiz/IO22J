@@ -91,3 +91,29 @@ window.onclick = function (event) {
         fieldCount = fieldCount;
     }
 }
+
+function addToCart(name, price, shippingPrice, seller, thumbnailUrl, redirectUrl, email) {
+    var token = $('#_csrf').attr('content');
+    var header = $('#_csrf_header').attr('content');
+
+    $.ajax("/cart/add", {
+        url: "/cart/add",
+        type: "POST",
+        contentType: "application/json",
+        data: JSON.stringify({
+            "userEmail": email,
+            "name": name,
+            "price": price,
+            "shippingPrice": shippingPrice,
+            "seller": seller,
+            "thumbnailUrl": thumbnailUrl,
+            "redirectUrl": redirectUrl
+        }),
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader(header, token);
+        },
+        success: () => {
+            console.log("dodano do koszyka bicz");
+        }
+    });
+}

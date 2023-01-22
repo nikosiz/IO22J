@@ -1,7 +1,7 @@
 package com.io.io22.ceneo.service;
 
 import com.io.io22.ceneo.client.CeneoClient;
-import com.io.io22.ceneo.dto.ProductClusterDTO;
+import com.io.io22.dto.ProductClusterDTO;
 import com.io.io22.utils.SortEnum;
 import org.springframework.stereotype.Service;
 
