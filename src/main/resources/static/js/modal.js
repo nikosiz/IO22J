@@ -35,7 +35,6 @@ addFieldBtn.addEventListener("click", function (event) {
         fieldContainer.appendChild(deleteBtn);
         var container = document.getElementById("input-fields-container");
         container.appendChild(fieldContainer);
-        fieldCount = fieldCount + 1;
     }
 });
 
@@ -65,9 +64,8 @@ options.forEach(function (option) {
 var container = document.getElementById("input-fields-container");
 container.addEventListener("click", function (event) {
     if (event.target.classList.contains("delete-field-btn")) {
-        var inputField = event.target.previousSibling;
-        inputField.remove();
-        event.target.remove();
+        var field = event.target.parentNode;
+        field.remove();
         fieldCount = fieldCount - 1;
     }
 });
