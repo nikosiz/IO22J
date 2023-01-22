@@ -1,9 +1,8 @@
 package com.io.io22.controller;
 
+import com.io.io22.dto.AddToCartDTO;
 import com.io.io22.entity.CartEntity;
 import com.io.io22.entity.OfferEntity;
-import com.io.io22.mapper.OfferMapper;
-import com.io.io22.model.ProductModel;
 import com.io.io22.service.CartService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
@@ -11,8 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 import java.util.Objects;
@@ -21,7 +20,6 @@ import java.util.Objects;
 @RequestMapping(path = "/cart")
 public class CartController {
 
-    public static final String SUCCESSFULLY_ADDED_OFFER = "Successfully added offer";
     private final CartService cartService;
 
     public CartController(CartService cartService) {
@@ -42,13 +40,7 @@ public class CartController {
     }
 
     @PostMapping(path = "/add")
-    public String addToCart(@AuthenticationPrincipal OidcUser principal,
-                            ProductModel productModel,
-                            RedirectAttributes redirectAttributes) {
-        cartService.addOfferToCart(OfferMapper.toOfferEntity(productModel), principal.getEmail());
-        redirectAttributes.addFlashAttribute("message", SUCCESSFULLY_ADDED_OFFER);
-        return "redirect:/";
-
-
+    public void addToCart(@RequestBody AddToCartDTO addToCartDTO) {
+        cartService.addOfferToCart(addToCartDTO);
     }
 }

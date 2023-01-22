@@ -1,5 +1,6 @@
 package com.io.io22.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -24,9 +26,16 @@ public class CartEntity {
     @OneToOne(fetch = FetchType.LAZY)
     private UserEntity userEntity;
 
-    @OneToMany
-    @JoinColumn(name = "offer_id")
-    private List<OfferEntity> offers;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "cart_offer_id")
+    private List<OfferEntity> offers = new ArrayList<>();
+
+    public CartEntity() {
+    }
+
+    public CartEntity(UserEntity userEntity) {
+        this.userEntity = userEntity;
+    }
 
     public List<OfferEntity> getOffers() {
         return offers;

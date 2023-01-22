@@ -23,12 +23,12 @@
         <p>Your cart is empty :(</p>
     </div>
 
-    <div th:each="product :${products}" th:if="${cartOffers!=null and !cartOffers.isEmpty()}">
+    <div th:if="${cartOffers!=null and !cartOffers.isEmpty()}">
 
         <!--Wyświetlenie wyników wyszukiwania-->
         <table id="results-table" style="margin-left:50px;margin-right:50px;" class="shopping-cart-table"
                th:each="offer :${cartOffers}">
-            <h3 th:text="${product.searchProduct}"></h3>
+            <h3 th:text="${offer.getName()}"></h3>
             <tr class="products-1st-row">
                 <th class="product-name-th">Product Name</th>
                 <th class="product-price-th">Price</th>

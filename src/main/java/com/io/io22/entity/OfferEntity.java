@@ -29,10 +29,10 @@ public class OfferEntity {
     @Column(name = "seller")
     private String seller;
 
-    @Column(name = "thumbnail_link")
+    @Column(name = "thumbnail_link", length = 1000)
     private String thumbnailUrl;
 
-    @Column(name = "redirect_url")
+    @Column(name = "redirect_url", length = 1000)
     private String redirectURL;
 
     public OfferEntity() {
