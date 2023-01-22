@@ -30,9 +30,11 @@
 
 <div class="container">
     <div th:each="product :${products}">
-        <table id="shopping-cart-table">
+
+        <!--Wyświetlenie wyników wyszukiwania-->
+        <table id="results-table" style="margin-left:50px;margin-right:50px;">
             <h3 th:text="${product.searchProduct}"></h3>
-            <tr>
+            <tr class="products-1st-row">
                 <th class="product-name-th">Product Name</th>
                 <th class="product-price-th">Price</th>
                 <th class="product-ship-th">Shipping Price</th>
@@ -40,10 +42,14 @@
                 <!--<th>URL ?</th>-->
             </tr>
             <tr>
-                <td th:text="${product.getResultProduct().getName()}">Product Name 1</td>
-                <td th:text="${product.getResultProduct().getOffer().getPrice()}">Price 1</td>
-                <td th:text="${product.getResultProduct().getOffer().getShippingPrice()}">Shipping Price 1</td>
-                <td th:text="${product.getResultProduct().getOffer().getSeller()}">Seller</td>
+                <td th:text="${product.getResultProduct().getName()}" id="product-name">Product Name 100 000 000 00 0000
+                    00 000 0000000 000 000000
+                </td>
+                <td th:text="${product.getResultProduct().getOffer().getPrice()}" id="product-price">Price 1</td>
+                <td th:text="${product.getResultProduct().getOffer().getShippingPrice()}" id="product-ship-price">
+                    Shipping Price 1
+                </td>
+                <td th:text="${product.getResultProduct().getOffer().getSeller()}" id="product-seller">Seller</td>
                 <!--<td th:text="${product.getResultProduct().getOffer().getRedirectUrl()}">Link 1</td>-->
 
                 <div sec:authorize="!isAuthenticated()">
@@ -65,7 +71,8 @@
     </div>
 </div>
 
-<!-- The Modal -->
+
+<!-- The Modal
 <div id="search-many-modal" class="search-many-modal">
 
     <div class="search-many-modal">
@@ -77,35 +84,38 @@
         </div>
     </div>
 
-    <!-- Modal content -->
+    <!-- Modal content
     <div class="search-modal-content">
         <span class="close-modal">&times;</span>
         <p>Type in what you are searching for...</p>
 
         <div class="search-container" style="margin-left:auto;">
-            <div class="buttons-container">
+            <div class="buttons-container" style="padding:5px;">
                 <form method="GET" th:action="@{/searchProduct}" th:object="${productsToSearch}">
                     <div id="input-fields-container">
-                        <input class="search" name="productsToSearch" placeholder="Search..." type="text">
+                        <input id="search-main" name="productsToSearch" placeholder="Search..." type="text">
                     </div>
-                    <div th:object="${sorting}">
+                    <div th:object="${sorting}" class="select-filter" style="margin:10px;">
                         <label for="option1">
-                            <input type="radio" name="sorting" value="BY_SHOPS" id="option1"> By Shops
+                            <input class="radio-field" type="radio" name="sorting" value="BY_SHOPS" id="option1">order by shops
                         </label>
                         <label for="option2">
-                            <input type="radio" name="sorting" value="BY_PRICE" id="option2"> By Price
+                            <input type="radio" name="sorting" value="BY_PRICE" id="option2">order by price
                         </label>
                     </div>
                     <button type="button" id="add-field-btn">Add Field</button>
-                    <button class="search-btn" id="search-modal-btn" type="submit" style="margin-top:20px;">
+                    <button class="search-btn" id="search-modal-btn" type="submit" style="margin-top:10px;padding:5px;">
                         <i class="fa fa-search"></i>
                     </button>
                 </form>
             </div>
         </div>
     </div>
-</div>
+</div>-->
 
+<div th:insert="fragments/modal :: div"></div>
+
+<script src="/js/modal.js"></script>
 
 <!--
 <div class="container">
@@ -128,8 +138,8 @@
 </div>
 -->
 
-<script>
 
+<!--
     var modal = document.getElementById("search-many-modal");
     // Get the button that opens the modal
     var btn = document.getElementById("search-modal-btn");
@@ -148,14 +158,14 @@
             // Create a new div element
             var fieldContainer = document.createElement("div");
             fieldContainer.classList.add("field-container");
+            fieldContainer.id="field-container";
 
             // Create a new input field
             var input = document.createElement("input");
-            input.class="search";
+            input.id = "search";
             input.name = "productsToSearch";
             input.placeholder = "Search...";
             input.type = "text";
-
 
             // Create a delete button for the input field
             var deleteBtn = document.createElement("button");
@@ -171,11 +181,11 @@
         }
     });
 
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
         // Select the form element
         var form = document.querySelector("form");
         // Add the submit event listener to the form
-        form.addEventListener("submit", function(event) {
+        form.addEventListener("submit", function (event) {
             event.preventDefault();
             var selectedOption = document.querySelector("input[name='sorting']:checked");
             selectedOption.parentElement.classList.add("selected");
@@ -183,18 +193,16 @@
     });
 
     var options = document.querySelectorAll("input[name='sorting']");
-    options.forEach(function(option) {
-        option.addEventListener("change", function() {
+    options.forEach(function (option) {
+        option.addEventListener("change", function () {
             var selectedOption = document.querySelector("input[name='sorting']:checked");
             var allOptionLabels = document.querySelectorAll("label");
-            allOptionLabels.forEach(function(label) {
+            allOptionLabels.forEach(function (label) {
                 label.classList.remove("selected");
             });
             selectedOption.parentElement.classList.add("selected");
         });
     });
-
-    console.log(fieldCount);
 
     var container = document.getElementById("input-fields-container");
     container.addEventListener("click", function (event) {
@@ -226,7 +234,7 @@
             modal.style.display = "none";
             fieldCount = fieldCount;
         }
-    }
+    }-->
 </script>
 
 

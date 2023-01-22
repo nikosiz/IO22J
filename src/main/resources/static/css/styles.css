@@ -34,7 +34,7 @@ h6 {
     font-famiy: 'Fredoka', sans-serif;
 }
 
-button, .login-btn, .choose-file {
+button, .login-btn {
     width: 100%;
     position: relative;
     border: none;
@@ -81,10 +81,6 @@ button:hover, .login-btn:hover, .choose-file:hover {
     align-items: center;
 }
 
-.fa-solid {
-    background: transparent;
-}
-
 /*---------------- NAVIGATION BAR ----------------*/
 .top-nav {
     align-items: center;
@@ -116,16 +112,43 @@ header {
 
 }
 
+.field-container {
+    display: flex;
+    justify-content: space-between;
+    margin-left: auto;
+    align-items: center;
+    justify-items:center;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background: white;
+    flex-direction: row;
+}
+
 .submit-search-btn {
     margin-right: 5px;
 }
 
-.search {
+#search-main {
     border-radius: 20px;
     border: none;
     appearance: none;
     padding: 5px 10px;
     background: white;
+    border-style:solid;
+    border-width:2px;
+    border-color:#999;
+}
+
+#search {
+    border-radius: 20px;
+    border: none;
+    margin:10px;
+    appearance: none;
+    padding: 5px 10px;
+    background: white;
+    border-style:solid;
+    border-width:2px;
+    border-color:#999;
 }
 
 .add-field-btn {
@@ -143,11 +166,6 @@ input {
 
 #input-fields-container input {
     margin-bottom: 10px;
-}
-
-.field-container {
-    display: flex;
-    align-items: center;
 }
 
 .field-container input {
@@ -456,26 +474,32 @@ label.selected:before {
     cursor: pointer;
 }
 
-.shopping-cart-table {
+.results-table {
     font-family: 'Roboto', sans-serif;
     border-collapse: collapse;
     width: 100%;
+    margin-left:20px;margin-right:20px;
 }
 
-#shopping-cart-table td, #shopping-cart-table th {
+#results-table td, #results-table th {
     padding: 10px;
 }
 
-#shopping-cart-table tr:nth-child(even) {
+#results-table tr:nth-child(even) {
     background-color: #ffffff;
 }
 
-#shopping-cart-table th {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    text-align: left;
+#results-table th {
+    padding: 10px;
+    font-weight:bold;
+    text-align: center;
     background-color: #0060af;
     color: white;
+}
+
+.products-1st-row {
+    min-width:5px;
+    max-width:100px;
 }
 
 .search-history-table {

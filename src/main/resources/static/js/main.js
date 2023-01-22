@@ -10,6 +10,12 @@ let products = [{
     name: 'product-4', tag: 'product-4', price: 40, inCart: 0
 },]
 
+let productsTest=[]
+
+var prodName=document.getElementById("product-name");
+productsTest.push(prodName);
+console.log(productsTest);
+
 for (let i = 0; i < carts.length; i++) {
     carts[i].addEventListener('click', () => {
         cartCounter(products[i]);

@@ -17,26 +17,23 @@
 
 <div th:insert="fragments/nav :: header"></div>
 
-<div class="img-container">
-    <img src="/images/boy-playing.jpg" alt="Children Laughing" style="width:100%;">
-    <!--<div class="center">         <h2>Welcome to ToyStores!</h2>         <h3>Tell us what do you need</h3>     </div>-->
+<div class="container">
+
+    <!--Wyświetlenie historii wyszukiwania -->
+    <table id="results-table" style="margin-left:50px;margin-right:50px;" class="shopping-cart-table" th:each="offer :${cartOffers}">
+        <h3 th:text="${product.searchProduct}"></h3>
+        <tr class="products-1st-row">
+            <th class="product-name-th">Searched phrase</th>
+        </tr>
+        <tr>
+            <td th:text="${offer.getName()}" id="product-name">*Searched phrase*</td>
+    </table>
+</div>
 </div>
 
-<div class="account-wrapper">
-    <div class="history-container">
-        <table id="search-history-table" style="width:200%">
-            <tr>
-                <th style="float:left;">Searched Product</th>
-                <th style="float:right;">Date</th>
-            </tr>
-            <tr>
-                <td style="float:left;">Product Name 1</td>
-                <td style="float:right;">01.01.1901</td>
-            </tr>
-        </table>
-    </div>
-    <div class="account-container"><p>asdf</p></div>
-</div>
+<div th:insert="fragments/modal :: div"></div>
+
+<script src="/js/modal.js"></script>
 
 </body>
 </html>
