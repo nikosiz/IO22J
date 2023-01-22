@@ -28,12 +28,12 @@
     </div>-->
 </div>
 
-<div class="container">
+<div id="search-results-container" class="container">
     <div th:each="product :${products}">
 
         <!--Wyświetlenie wyników wyszukiwania-->
         <table id="results-table" style="margin-left:50px;margin-right:50px;">
-            <h3 th:text="${product.searchProduct}"></h3>
+            <h3 th:text="Results for ${product.searchProduct}"></h3>
             <tr class="products-1st-row">
                 <th class="product-name-th">Product Name</th>
                 <th class="product-price-th">Price</th>

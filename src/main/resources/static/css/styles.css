@@ -6,6 +6,8 @@
     font-size: 18px;
 }
 
+/* ---------- MAIN SETTINGS ----------*/
+
 h1 {
     font-family: 'Fredoka One';
     font-size: 30px;
@@ -33,16 +35,11 @@ h69 {
     font-family: 'Fredoka One', sans-serif;
     font-size: 30px;
     font-weight: bold;
+    color:#555;
 
 }
 
-.logo img {
-    max-width: 183px;
-    height: auto;
-    margin-left:20px;
-}
-
-button, .login-btn {
+button {
     width: 100%;
     position: relative;
     border: none;
@@ -52,6 +49,36 @@ button, .login-btn {
     cursor: pointer;
     white-space: nowrap;
     color: white;
+}
+
+button:hover {
+    background-color: #46762a;
+}
+
+/*---------- NAVIGATION BAR ----------*/
+
+header {
+    width: 100%;
+    background: white;
+    display: flex;
+    align-items: start;
+    justify-content: space-evenly;
+    font-size: 30px;
+    font-size: 3.5vw;
+    font-weight: bold;
+    color: #0060af;
+}
+
+.top-nav {
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.logo img {
+    max-width: 183px;
+    height: auto;
+    margin-left:20px;
 }
 
 .search-btn {
@@ -71,15 +98,7 @@ button, .login-btn {
     background: #8d0d37;
 }
 
-input[type="file"] {
-    display: none;
-}
-
-button:hover, .login-btn:hover, .choose-file:hover {
-    background-color: #46762a;
-}
-
-.container, .products-container {
+.container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -89,23 +108,82 @@ button:hover, .login-btn:hover, .choose-file:hover {
     align-items: center;
 }
 
-/*---------------- NAVIGATION BAR ----------------*/
-.top-nav {
-    align-items: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
+/*---------- MAIN PAGE ----------*/
+
+#search-results-container {
+    width:100%;
+    max-width: 100%;
 }
 
-header {
-    width: 100%;
-    background: white;
-    display: flex;
-    align-items: start;
-    justify-content: space-evenly;
-    font-size: 30px;
-    font-size: 3.5vw;
+/*----- MODAL ELEMENTS -----*/
+
+.search-many-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.search-modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%; /* Could be more or less, depending on screen size */
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+label {
+    display: inline-block;
+    position: relative;
+    padding-left: 25px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+label:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+}
+
+input[type="radio"]:checked + label:before {
+    content: "";
+    background: #0060af;
+    border-radius: 50%;
+}
+
+label.selected:before {
+    content: "";
+    background: #0060af;
+    border-radius: 50%;
+}
+
+.close-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
     font-weight: bold;
-    color: #0060af;
+}
+
+.close-modal:hover, .close-modal:focus {
+    color: #5d5d5d;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .search-container {
@@ -117,7 +195,6 @@ header {
     border-radius: 20px;
     background: white;
     flex-direction: column;
-
 }
 
 .field-container {
@@ -410,82 +487,12 @@ cartTotal {
     font-size: 18px;
 }
 
-/* The Modal (background) */
-.search-many-modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0); /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
-}
 
-/* Modal Content/Box */
-.search-modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 60%; /* Could be more or less, depending on screen size */
-}
-
-input[type="radio"] {
-    display: none;
-}
-
-label {
-    display: inline-block;
-    position: relative;
-    padding-left: 25px;
-    margin-right: 10px;
-    cursor: pointer;
-}
-
-label:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 20px;
-    height: 20px;
-    border: 1px solid #ccc;
-    border-radius: 50%;
-}
-
-input[type="radio"]:checked + label:before {
-    content: "";
-    background: #0060af;
-    border-radius: 50%;
-}
-
-label.selected:before {
-    content: "";
-    background: #0060af;
-    border-radius: 50%;
-}
-
-/* The Close Button */
-.close-modal {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close-modal:hover, .close-modal:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
 
 .results-table {
     font-family: 'Roboto', sans-serif;
     border-collapse: collapse;
-    width: 100%;
+    min-width: 100%;
     margin-left: 20px;
     margin-right: 20px;
 }

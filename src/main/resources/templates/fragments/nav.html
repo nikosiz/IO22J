@@ -17,7 +17,7 @@
 
     <a class="logo" th:href="@{/}"><img src="/images/Logo.svg" alt="Children Laughing"></a>
 
-    <div class="search-container">
+    <div style="margin-left:auto;">
 
         <!--<form th:action="@{/search}" method="get">
              <input type="text" name="keyword" th:value="${keyword}" placeholder="Search...">
@@ -50,12 +50,12 @@
     <div class="log-btn-container">
         <div sec:authorize="!isAuthenticated()">
             <a th:href="@{/oauth2/authorization/auth0}">
-                <button class="login-btn" style="margin-left:5px"><i class="fa fa-user"></i></button>
+                <button id="login-btn" style="margin-left:5px"><i class="fa fa-user"></i></button>
             </a>
         </div>
         <div sec:authorize="isAuthenticated()">
-            <a class="login-btn" th:href="@{/logout}">
-                <button class="login-btn" style="margin-left:5px">Log out</button>
+            <a th:href="@{/logout}">
+                <button id="logout-btn" style="margin-left:5px">Log out</button>
             </a>
         </div>
     </div>
