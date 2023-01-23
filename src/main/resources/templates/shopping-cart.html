@@ -25,60 +25,41 @@
     </div>-->
 </div>
 
-
-
-<div class="container">
+<div id="search-results-container" class="container">
     <div th:if="${cartOffers==null or cartOffers.isEmpty()}">
         <p>Your cart is empty :(</p>
     </div>
 
     <div th:if="${cartOffers!=null and !cartOffers.isEmpty()}">
 
-        <!--Wyświetlenie produktów dodanych do koszyka-->
-        <table id="results-table" style="margin-left:50px;margin-right:50px;" class="shopping-cart-table"
-               th:each="offer :${cartOffers}">
-            <h3 th:text="${offer.getName()}"></h3>
-            <tr class="products-1st-row">
-                <th class="product-name-th" style="border-top-left-radius:17px;">Product Name</th>
-                <th class="product-price-th">Price</th>
-                <th class="product-seller-th">Link</th>
-                <th style="border-top-right-radius:17px;"></th>
-                <th style="border-top-right-radius:17px;"></th>
-                <!--<th>URL ?</th>-->
-            </tr>
-            <tr>
-                <td th:text="${offer.getName()}" id="product-name">Product Name 100 000 000 00 0000
-                    00 000 0000000 000 000000
-                </td>
-                <td th:text="${offer.getPrice()}" id="product-price">Price 1</td>
-                <!--<td th:text="${offer.getResultProduct().getOffer().getSeller()}" id="product-seller">Seller</td>-->
-                <td><a th:href="${offer.getRedirectURL()}">Link</a></td>
-                <!--<td th:text="${product.getResultProduct().getOffer().getRedirectUrl()}">Link 1</td>-->
+        <div th:each="product :${products}">
 
-                <!--Usuwanie produktu z koszyka dla użytkownika niezalogowanego-->
-                <div sec:authorize="!isAuthenticated()">
-                    <td>
-                        <button class="add-to-cart"><i class="fa fa-trash" style="color:white;"></i></button>
+            <table id="results-table" style="margin-left:50px;margin-right:50px;">
+                <h3 th:text="${product.searchProduct}" style="margin:50px;"></h3>
+                <tr class="products-1st-row">
+                    <th class="product-thumbnail-th" style="border-bottom:solid;">Thumbnail</th>
+                    <th class="product-name-th" id="prod-name-cell" style="border-bottom:solid;">Product Name</th>
+                    <th class="product-price-th">Price</th>
+                    <th class="product-buy-th">Buy</th>
+                    <!--<th>URL ?</th>-->
+                </tr>
+                <tr>
+                    <td><img th:src="${offer.getThumbnailUrl()}"></td>
+                    <td th:text="${offer.getName()}" id="product-name">
+                        *product name*
                     </td>
-                </div>
+                    <td th:text="${offer.getPrice()}" id="product-price">
+                        *price*
+                    </td>
 
-                <!--Usuwanie produktu z koszyka dla użytkownika zalogowanego-->
-                <div sec:authorize="isAuthenticated()">
-                    <td>
-                        <a th:href="@{/cart/{id}(id=${offer.getId()})}"><i class="fa fa-trash"></i></a></td>
-                </div>
-            </tr>
-            <tr class="products-1st-row">
-                <td></td>
-                <th>Shipping</th>
-                <th>10</th>
-            </tr>
-            <tr class="products-1st-row">
-                <td></td>
-                <th>Total price</th>
-                <th th:text="${offer.getShippingPrice()}">1000</th>
-            </tr>
-        </table>
+                    <td sec:authorize="isAuthenticated()">
+                        <a th:href="@{/cart/{id}(id=${offer.getId()})}">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>
 
