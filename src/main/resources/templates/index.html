@@ -2,6 +2,7 @@
 <html lang="en" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
       xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link rel="icon" type="icon" href="/images/favicon.ico">
     <meta charset="UTF-8">
     <meta id="_csrf" name="_csrf" th:content="${_csrf.token}"/>
     <meta id="_csrf_header" name="_csrf_header" th:content="${_csrf.headerName}"/>
@@ -54,12 +55,6 @@
                 </td>
                 <td th:text="${product.getResultProduct().getOffer().getSeller()}" id="product-seller">Seller</td>
 
-                <div sec:authorize="!isAuthenticated()">
-                    <!--Dodawanie produktu do koszyka dla użytkownika niezalogowanego-->
-                    <td>
-                        <button class="add-to-cart">Add to cart</button>
-                    </td>
-                </div>
 
                 <div sec:authorize="isAuthenticated()">
                     <!--Dodawanie produktu do koszyka dla użytkownika zalogowanego-->
