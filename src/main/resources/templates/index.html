@@ -36,9 +36,10 @@
 
         <!--Wyświetlenie wyników wyszukiwania-->
         <table id="results-table" style="margin-left:50px;margin-right:50px;">
-            <h3 th:text="${product.searchProduct}"></h3>
+            <h3 th:text="${product.searchProduct}" style="margin:50px;"></h3>
             <tr class="products-1st-row">
-                <th class="product-name-th" id="prod-name-cell"  style="border-bottom:solid;">Product Name</th>
+                <th class="product-thumbnail-th" style="border-bottom:solid;">Thumbnail</th>
+                <th class="product-name-th" id="prod-name-cell" style="border-bottom:solid;">Product Name</th>
                 <th class="product-price-th">Price</th>
                 <th class="product-ship-th">Shipping Price</th>
                 <th class="product-seller-th">Seller</th>
@@ -46,18 +47,19 @@
                 <!--<th>URL ?</th>-->
             </tr>
             <tr>
-                <td th:text="${product.getResultProduct().getName()}" id="product-name">Product Name 100 000 000 00 0000
-                    00 000 0000000 000 000000
+                <td><img th:src="${product.getResultProduct().getThumbnailUrl()}"></td>
+                <td th:text="${product.getResultProduct().getName()}" id="product-name">
+                    *product name*
                 </td>
-                <td th:text="${product.getResultProduct().getOffer().getPrice()}" id="product-price">Price 1</td>
+                <td th:text="${product.getResultProduct().getOffer().getPrice()}" id="product-price">*price*</td>
                 <td th:text="${product.getResultProduct().getOffer().getShippingPrice()}" id="product-ship-price">
-                    Shipping Price 1
+                    *shipping price*
                 </td>
-                <td th:text="${product.getResultProduct().getOffer().getSeller()}" id="product-seller">Seller</td>
+                <td th:text="${product.getResultProduct().getOffer().getSeller()}" id="product-seller">*seller*</td>
 
 
+                <!--Dodawanie produktu do koszyka dla użytkownika zalogowanego-->
                 <div sec:authorize="isAuthenticated()">
-                    <!--Dodawanie produktu do koszyka dla użytkownika zalogowanego-->
                     <td>
                         <button th:attr="onclick='addToCart(\'' + ${product.getResultProduct().getName()}+  '\',\'' + ${product.getResultProduct().getOffer().getPrice()}+  '\', \'' + ${product.getResultProduct().getOffer().getShippingPrice()}+  '\',\'' + ${product.getResultProduct().getOffer().getSeller()}+  '\',\'' + ${product.getResultProduct().getThumbnailUrl()}+  '\',\'' + ${product.getResultProduct().getOffer().getRedirectUrl()}+  '\',\'' + ${userEmail}+  '\');'">
                             Add to cart
