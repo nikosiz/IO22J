@@ -33,14 +33,14 @@
 
     <div th:if="${cartOffers!=null and !cartOffers.isEmpty()}">
 
-        <!--Wyświetlenie wyników wyszukiwania-->
+        <!--Wyświetlenie produktów dodanych do koszyka-->
         <table id="results-table" style="margin-left:50px;margin-right:50px;" class="shopping-cart-table"
                th:each="offer :${cartOffers}">
             <h3 th:text="${offer.getName()}"></h3>
             <tr class="products-1st-row">
                 <th class="product-name-th" style="border-top-left-radius:17px;">Product Name</th>
                 <th class="product-price-th">Price</th>
-                <th th:text="${offer.getRedirectURL()}" class="product-seller-th">Link</th>
+                <th class="product-seller-th">Link</th>
                 <th style="border-top-right-radius:17px;"></th>
                 <th style="border-top-right-radius:17px;"></th>
                 <!--<th>URL ?</th>-->
@@ -51,7 +51,7 @@
                 </td>
                 <td th:text="${offer.getPrice()}" id="product-price">Price 1</td>
                 <!--<td th:text="${offer.getResultProduct().getOffer().getSeller()}" id="product-seller">Seller</td>-->
-                <td th:text="Go to seller"><a th:href="${offer.getRedirectURL()}">Link 1</td>
+                <td><a th:href="${offer.getRedirectURL()}">Link</a></td>
                 <!--<td th:text="${product.getResultProduct().getOffer().getRedirectUrl()}">Link 1</td>-->
 
                 <!--Usuwanie produktu z koszyka dla użytkownika niezalogowanego-->

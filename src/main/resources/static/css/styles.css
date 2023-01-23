@@ -490,21 +490,18 @@ cartTotal {
     font-size: 18px;
 }
 
-
 .results-table {
     font-family: 'Roboto', sans-serif;
     border-collapse: collapse;
     min-width: 100%;
+    margin-top:30px;
+}
 
-
+tr th {
+    border-bottom:solid;
 }
 
 #results-table td, #results-table th {
-    border-radius:20px;
-    border-style:solid;
-
-
-
     padding: 10px;
 }
 
@@ -515,9 +512,9 @@ cartTotal {
 #results-table th {
     padding: 10px;
     font-weight: bold;
-    text-align: center;
-    background-color: #0060af;
-    color: white;
+    text-align: left;
+    background-color: #fff;
+    color: #0060af;
 
 }
 
