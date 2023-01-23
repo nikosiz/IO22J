@@ -8,22 +8,25 @@ import com.io.io22.exception.CartNotFoundException;
 import com.io.io22.exception.UserNotFoundException;
 import com.io.io22.mapper.OfferMapper;
 import com.io.io22.repository.CartRepository;
+import com.io.io22.repository.OfferRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class CartService {
 
     private final CartRepository cartRepository;
 
+    private final OfferRepository offerRepository;
+
     private final UserService userService;
 
-    public CartService(CartRepository cartRepository, UserService userService) {
+    public CartService(CartRepository cartRepository, OfferRepository offerRepository, UserService userService) {
         this.cartRepository = cartRepository;
+        this.offerRepository = offerRepository;
         this.userService = userService;
     }
 
@@ -53,12 +56,8 @@ public class CartService {
         return cartRepository.findByUserEntity_Email(email);
     }
 
-    public void deleteProduct(Long productId, String email) {
+    public void deleteProduct(Long offerId, String email) {
         CartEntity cartEntity = getUserCart(email).orElseThrow(CartNotFoundException::new);
-        List<OfferEntity> deletedProduct = cartEntity.getOffers().stream()
-                .filter(offer -> offer.getId().equals(productId))
-                .collect(Collectors.toList());
-        cartEntity.setOffers(deletedProduct);
-        save(cartEntity);
+        offerRepository.deleteById(offerId);
     }
 }
