@@ -25,7 +25,7 @@
     </div>-->
 </div>
 
-<div class="container">
+<div id="search-results-container" class="container">
     <div th:if="${cartOffers==null or cartOffers.isEmpty()}">
         <p>Your cart is empty :(</p>
     </div>
@@ -33,37 +33,41 @@
     <div th:if="${cartOffers!=null and !cartOffers.isEmpty()}">
 
         <!--Wyświetlenie produktów dodanych do koszyka-->
-        <table id="results-table" style="margin-left:50px;margin-right:50px;" class="shopping-cart-table"
-               th:each="offer :${cartOffers}">
-            <h3 th:text="${offer.getName()}"></h3>
+        <table id="results-table" style="margin-left:50px;margin-right:50px;" th:each="offer :${cartOffers}">
             <tr class="products-1st-row">
-                <th class="product-name-th" style="border-top-left-radius:17px;">Product Name</th>
-                <th class="product-price-th">Price</th>
-                <th class="product-seller-th">Link</th>
-                <th style="border-top-right-radius:17px;"></th>
-                <th style="border-top-right-radius:17px;"></th>
-                <!--<th>URL ?</th>-->
+                <th class="product-thumbnail-th" style="border-bottom:solid;">Thumbnail</th>
+                <th class="product-name-th" style="border-bottom:solid;">Product Name</th>
+                <th class="product-price-th" style="border-bottom:solid;">Price</th>
+                <th class="product-seller-th" style="border-bottom:solid;">Seller</th>
+                <th class="product-link-th" style="border-bottom:solid;">Link</th>
+                <th style="border-bottom:solid;">Delete</th>
             </tr>
             <tr>
-                <td th:text="${offer.getName()}" id="product-name">Product Name 100 000 000 00 0000
-                    00 000 0000000 000 000000
+                <td>
+                    <img th:src="${offer.getThumbnailUrl()}">
                 </td>
-                <td th:text="${offer.getPrice()}" id="product-price">Price 1</td>
-                <!--<td th:text="${offer.getResultProduct().getOffer().getSeller()}" id="product-seller">Seller</td>-->
-                <td><a th:href="${offer.getRedirectURL()}">Link</a></td>
-                <!--<td th:text="${product.getResultProduct().getOffer().getRedirectUrl()}">Link 1</td>-->
-
-                <!--Usuwanie produktu z koszyka dla użytkownika niezalogowanego-->
-                <div sec:authorize="!isAuthenticated()">
-                    <td>
-                        <button class="add-to-cart"><i class="fa fa-trash" style="color:white;"></i></button>
-                    </td>
-                </div>
+                <td th:text="${offer.getName()}" id="product-name">
+                    *product name*
+                </td>
+                <td th:text="${offer.getPrice()}" id="product-price">
+                    *price*
+                </td>
+                <td th:text="${offer.getSeller()}" id="product-seller">
+                    *seller*
+                </td>
+                <td id="product-link">>
+                    <a th:href="${offer.getRedirectURL()}">
+                        Go to seller
+                    </a>
+                </td>
 
                 <!--Usuwanie produktu z koszyka dla użytkownika zalogowanego-->
                 <div sec:authorize="isAuthenticated()">
                     <td>
-                        <a th:href="@{/cart/{id}(id=${offer.getId()})}"><i class="fa fa-trash"></i></a></td>
+                        <a th:href="@{/cart/{id}(id=${offer.getId()})}" style="margin-left:auto;margin-right:auto;">
+                            <i class="fa fa-trash" style="color:#72bf44;"></i>
+                        </a>
+                    </td>
                 </div>
             </tr>
             <tr class="products-1st-row">
@@ -74,7 +78,7 @@
             <tr class="products-1st-row">
                 <td></td>
                 <th>Total price</th>
-                <th th:text="${offer.getShippingPrice()}">1000</th>
+                <th th:text="${offer.getPrice()}+${offer.getShippingPrice()}">1000</th>
             </tr>
         </table>
     </div>
