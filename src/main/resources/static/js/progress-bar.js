@@ -1,6 +1,6 @@
 var i = 0;
 function move() {
-    if (i == 0) {
+    if (i === 0) {
         i = 1;
         var elem = document.getElementById("myBar");
         var width = 1;

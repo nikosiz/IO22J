@@ -54,8 +54,9 @@
             </a>
         </div>
         <div sec:authorize="isAuthenticated()">
-            <a th:href="@{/logout}">
-                <button id="logout-btn" style="margin-left:5px">Log out</button>
+            <a th:href="@{/history}">
+                <!-- <button id="logout-btn" style="margin-left:5px">Log out</button> -->
+                <button id="user-cabinet-btn" style="margin-left:5px"><i class="fa fa-user"></i></button>
             </a>
         </div>
     </div>
