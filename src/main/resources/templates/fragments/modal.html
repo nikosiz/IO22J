@@ -50,20 +50,26 @@
                             <input type="radio" name="sorting" value="BY_PRICE" id="option2">order by price
                         </label>
                     </div>
+                    <button type="button" id="add-field-btn">Add Field</button>
+                    <button class="search-btn" id="search-modal-btn" type="submit" style="margin-top:10px;padding:5px;">
+                        <i class="fa fa-search"></i>
+                    </button>
+
+
                     <div style="margin-top:20px; margin-bottom:10px;">
                         <p style="font-size: 20px; text-align:center;font-weight: bold;color:#555;">
                             OR SEARCH USING A .TXT FILE</p>
                         <div style="margin-top:10px;margin-left:auto;margin-right:auto;">
                             <form action="/action_page.php">
                                 <input type="file" id="myFile" name="filename">
+                                <div>
+                                    <button>Search</button>
+                                </div>
                             </form>
                         </div>
                     </div>
 
-                    <button type="button" id="add-field-btn">Add Field</button>
-                    <button class="search-btn" id="search-modal-btn" type="submit" style="margin-top:10px;padding:5px;">
-                        <i class="fa fa-search"></i>
-                    </button>
+
                 </form>
             </div>
             <div id="myProgress">
