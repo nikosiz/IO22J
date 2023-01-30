@@ -4,8 +4,16 @@ function move() {
         i = 1;
         var elem = document.getElementById("myBar");
         var width = 1;
-        // ono niby wykorzystuje ilość pól i jest wolniej jak ich jest więcej ale zrobione bardzo na oko
-        var id = setInterval(frame, fieldCount * 250);
+
+        const manualForm = document.getElementById('manual-form');
+        const importForm = document.getElementById('import-form');
+
+        var id;
+        if (manualForm.elements['search-main'].value.length > 0) {
+            id = setInterval(frame, fieldCount * 300);
+        } else if (importForm.elements['file'].value.length > 0) {
+            id = setInterval(frame, 1000);
+        }
         function frame() {
             if (width >= 100) {
                 clearInterval(id);

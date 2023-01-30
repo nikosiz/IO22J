@@ -37,40 +37,35 @@
 
         <div class="search-container" style="margin-left:auto;margin-right:auto;margin-top:20px;">
             <div class="buttons-container" style="padding:5px;">
-                <form method="GET" th:action="@{/searchProduct}" th:object="${productsToSearch}" onsubmit="move()">
-                    <div id="input-fields-container">
-                        <input id="search-main" name="productsToSearch" placeholder="Search..." type="text">
+                <form id="manual-form" method="GET" th:action="@{/searchProduct}" th:object="${productsToSearch}"></form>
+                <form id="import-form" method="GET" th:action="@{/upload}" th:object="${file}"></form>
+
+                <div id="input-fields-container">
+                    <input id="search-main" name="productsToSearch" placeholder="Search..." type="text" form="manual-form">
+                </div>
+                <button type="button" id="add-field-btn" form="manual-form">Add Field</button>
+
+                <div style="margin-top:20px; margin-bottom:10px;">
+                    <p style="font-size: 20px; text-align:center;font-weight: bold;color:#555;">
+                        OR SEARCH USING A .TXT FILE</p>
+                    <div style="margin-top:10px;margin-left:auto;margin-right:auto;">
+                        <input type="file" id="myFile" name="file" form="import-form">
                     </div>
-                    <div th:object="${sorting}" class="select-filter" style="margin:10px;">
-                        <label for="option1">
-                            <input class="radio-field" type="radio" name="sorting" value="BY_SHOPS" id="option1">order
-                            by shops
-                        </label>
-                        <label for="option2">
-                            <input type="radio" name="sorting" value="BY_PRICE" id="option2">order by price
-                        </label>
-                    </div>
-                    <button type="button" id="add-field-btn">Add Field</button>
-                    <button class="search-btn" id="search-modal-btn" type="submit" style="margin-top:10px;padding:5px;">
-                        <i class="fa fa-search"></i>
-                    </button>
+                </div>
 
+                <div th:object="${sorting}" class="select-filter" style="margin:10px;">
+                    <label for="option1">
+                        <input class="radio-field" type="radio" name="sorting" value="BY_SHOPS" id="option1">order
+                        by shops
+                    </label>
+                    <label for="option2">
+                        <input type="radio" name="sorting" value="BY_PRICE" id="option2">order by price
+                    </label>
+                </div>
 
-                    <div style="margin-top:20px; margin-bottom:10px;">
-                        <p style="font-size: 20px; text-align:center;font-weight: bold;color:#555;">
-                            OR SEARCH USING A .TXT FILE</p>
-                        <div style="margin-top:10px;margin-left:auto;margin-right:auto;">
-                            <form action="/action_page.php">
-                                <input type="file" id="myFile" name="filename">
-                                <div>
-                                    <button>Search</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
-
-                </form>
+                <button class="search-btn" id="search-modal-btn" type="button" onclick="submitForm()" style="margin-top:10px;padding:5px;">
+                    <i class="fa fa-search"></i>
+                </button>
             </div>
             <div id="myProgress">
                 <div id="myBar"></div>
