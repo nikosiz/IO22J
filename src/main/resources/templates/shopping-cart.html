@@ -78,7 +78,7 @@
             <tr class="products-1st-row">
                 <td></td>
                 <th>Total price</th>
-                <th th:text="${offer.getPrice()}+${offer.getShippingPrice()}">1000</th>
+                <th th:text="${offer.getPrice()+offer.getShippingPrice()}">1000</th>
             </tr>
         </table>
     </div>
