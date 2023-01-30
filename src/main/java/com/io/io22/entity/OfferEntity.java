@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 @Entity
 @Table(name = "offer")
@@ -73,5 +75,9 @@ public class OfferEntity {
 
     public String getRedirectURL() {
         return redirectURL;
+    }
+
+    public Double getTotalPrice() {
+        return BigDecimal.valueOf(price + shippingPrice).setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
 }

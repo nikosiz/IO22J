@@ -35,6 +35,8 @@ addFieldBtn.addEventListener("click", function (event) {
         fieldContainer.appendChild(deleteBtn);
         var container = document.getElementById("input-fields-container");
         container.appendChild(fieldContainer);
+
+        fieldCount++;
     }
 });
 

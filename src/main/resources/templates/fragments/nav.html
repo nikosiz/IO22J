@@ -61,7 +61,7 @@
         </div>
     </div>
 
-    <div id="cart-container">
+    <div id="cart-container" sec:authorize="isAuthenticated()">
         <div id="cart">
             <a style="text-decoration:none;" th:href="@{/cart/}">
                 <div class="cart">
