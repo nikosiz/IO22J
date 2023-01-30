@@ -21,7 +21,6 @@ public class WebSecurityConfiguration  {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .mvcMatchers("/").permitAll()
-                .mvcMatchers("/cart").permitAll()
                 .mvcMatchers("/searchProduct").permitAll()
                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                 .anyRequest().authenticated()
