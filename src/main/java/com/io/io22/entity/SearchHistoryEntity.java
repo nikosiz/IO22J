@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -47,8 +48,9 @@ public class SearchHistoryEntity {
         return id;
     }
 
-    public LocalDateTime getClusterSearchDate() {
-        return clusterSearchDate;
+    public String getClusterSearchDate() {
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        return clusterSearchDate.format(format);
     }
 
     public UserEntity getUserEntity() {
