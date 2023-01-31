@@ -36,14 +36,14 @@
 
         <!--Wyświetlenie wyników wyszukiwania-->
         <table id="results-table" style="margin-left:50px;margin-right:50px;">
-            <h3 th:text="${product.searchProduct}"></h3>
+            <h3 style="margin-left:50px;" th:text="${product.searchProduct}"></h3>
             <tr class="products-1st-row">
-                <th class="product-thumbnail-th" style="border-bottom:solid;">Thumbnail</th>
-                <th class="product-name-th" id="prod-name-cell" style="border-bottom:solid;">Product Name</th>
-                <th class="product-price-th">Price</th>
-                <th class="product-ship-th">Shipping</th>
-                <th class="product-seller-th">Seller</th>
-                <th class="product-buy-th" sec:authorize="isAuthenticated()">Buy</th>
+                <th class="product-thumbnail-th" style="border-bottom:solid;width:100%;">Thumbnail</th>
+                <th class="product-name-th" id="prod-name-cell" style="border-bottom:solid;width:100%;">Product Name</th>
+                <th class="product-price-th" style="border-bottom:solid;width:100%;">Price</th>
+                <th class="product-ship-th" style="border-bottom:solid;width:100%;">Shipping</th>
+                <th class="product-seller-th" style="border-bottom:solid;width:100%;">Seller</th>
+                <th class="product-buy-th" sec:authorize="isAuthenticated()" style="border-bottom:solid;width:100%;">Buy</th>
                 <!--<th>URL ?</th>-->
             </tr>
             <tr>
@@ -62,10 +62,10 @@
                 <div sec:authorize="isAuthenticated()">
                     <!--Dodawanie produktu do koszyka dla użytkownika zalogowanego-->
                     <td>
-                        <button onclick="openPopup()" th:attr="onclick='addToCart(\'' + ${product.getResultProduct().getName()}+  '\',\'' + ${product.getResultProduct().getOffer().getPrice()}+  '\', \'' + ${product.getResultProduct().getOffer().getShippingPrice()}+  '\',\'' + ${product.getResultProduct().getOffer().getSeller()}+  '\',\'' + ${product.getResultProduct().getThumbnailUrl()}+  '\',\'' + ${product.getResultProduct().getOffer().getRedirectUrl()}+  '\',\'' + ${userEmail}+  '\');'">
+                        <div onclick="openPopup()" ><button th:attr="onclick='addToCart(\'' + ${product.getResultProduct().getName()}+  '\',\'' + ${product.getResultProduct().getOffer().getPrice()}+  '\', \'' + ${product.getResultProduct().getOffer().getShippingPrice()}+  '\',\'' + ${product.getResultProduct().getOffer().getSeller()}+  '\',\'' + ${product.getResultProduct().getThumbnailUrl()}+  '\',\'' + ${product.getResultProduct().getOffer().getRedirectUrl()}+  '\',\'' + ${userEmail}+  '\');'">
                             Add to cart
-                            <span class="popuptext" id="cart-popup">A Simple Popup!</span>
-                        </button>
+                            <span class="popuptext" id="cart-popup">Added to cart!</span>
+                        </button></div>
                     </td>
                 </div>
             </tr>
@@ -73,52 +73,11 @@
     </div>
 </div>
 
-
-<!-- The Modal
-<div id="search-many-modal" class="search-many-modal">
-
-    <div class="search-many-modal">
-        <div class="search-container">
-            <form action="/action_page.php">
-                <input type="text" placeholder="Search.." name="search">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-        </div>
-    </div>
-
-    Modal content
-    <div class="search-modal-content">
-        <span class="close-modal">&times;</span>
-        <p>Type in what you are searching for...</p>
-
-        <div class="search-container" style="margin-left:auto;">
-            <div class="buttons-container" style="padding:5px;">
-                <form method="GET" th:action="@{/searchProduct}" th:object="${productsToSearch}">
-                    <div id="input-fields-container">
-                        <input id="search-main" name="productsToSearch" placeholder="Search..." type="text">
-                    </div>
-                    <div th:object="${sorting}" class="select-filter" style="margin:10px;">
-                        <label for="option1">
-                            <input class="radio-field" type="radio" name="sorting" value="BY_SHOPS" id="option1">order by shops
-                        </label>
-                        <label for="option2">
-                            <input type="radio" name="sorting" value="BY_PRICE" id="option2">order by price
-                        </label>
-                    </div>
-                    <button type="button" id="add-field-btn">Add Field</button>
-                    <button class="search-btn" id="search-modal-btn" type="submit" style="margin-top:10px;padding:5px;">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>-->
-
 <div th:insert="fragments/modal :: div"></div>
 
 <script src="/js/modal.js"></script>
 <script src="/js/progress-bar.js"></script>
+<script src="/js/added-to-cart-popup.js"></script>
 
 <div th:insert="fragments/footer :: footer"></div>
 
