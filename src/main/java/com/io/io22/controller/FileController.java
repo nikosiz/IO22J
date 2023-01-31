@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Controller
@@ -58,6 +59,9 @@ public class FileController {
         if (ceneoProducts.isEmpty()) {
             redirectAttributes.addFlashAttribute("message", NO_RESULTS_FOUND_MESSAGE);
             return "index";
+        }
+        if (!Objects.isNull(principal)) {
+            model.addAttribute("userEmail", principal.getEmail());
         }
         searchHistoryService.addIfUserAuthenticated(principal, productsToSearch);
         model.addAttribute("products", ceneoProducts);
