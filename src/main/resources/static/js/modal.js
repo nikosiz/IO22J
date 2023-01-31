@@ -72,6 +72,34 @@ container.addEventListener("click", function (event) {
     }
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    var inputField = document.getElementById("search-main")
+    var inputFile = document.getElementById("myFile")
+
+    inputField.addEventListener("input", function () {
+        document.getElementById("manual-options").style = "visibility: visible";
+    });
+
+    inputFile.addEventListener("change", function () {
+        document.getElementById("import-options").style = "visibility: visible";
+    });
+});
+
+function submitForm() {
+    const manualForm = document.getElementById('manual-form');
+    const importForm = document.getElementById('import-form');
+
+    if (manualForm.elements['search-main'].value.length > 0) {
+        document.getElementById("myProgress").style = "visibility: visible";
+        manualForm.submit();
+        move()
+    } else if (importForm.elements['file'].value.length > 0) {
+        document.getElementById("myProgress").style = "visibility: visible";
+        importForm.submit();
+        move()
+    }
+}
+
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close-modal")[0];
 
@@ -118,23 +146,4 @@ function addToCart(name, price, shippingPrice, seller, thumbnailUrl, redirectUrl
             console.log("dodano do koszyka bicz");
         }
     });
-}
-
-function submitForm() {
-    const manualForm = document.getElementById('manual-form');
-    const importForm = document.getElementById('import-form');
-
-    if (manualForm.elements['search-main'].value.length > 0) {
-        document.getElementById("myProgress").style = "visibility: visible";
-        document.getElementById("option1").form = "manual-form";
-        document.getElementById("option2").form = "manual-form";
-        manualForm.submit();
-        move()
-    } else if (importForm.elements['file'].value.length > 0) {
-        document.getElementById("myProgress").style = "visibility: visible";
-        document.getElementById("option1").form = "import-form";
-        document.getElementById("option2").form = "import-form";
-        importForm.submit();
-        move()
-    }
 }

@@ -38,30 +38,22 @@
         <div class="search-container" style="margin-left:auto;margin-right:auto;margin-top:20px;">
             <div class="buttons-container" style="padding:5px;">
                 <form id="manual-form" method="GET" th:action="@{/searchProduct}" th:object="${productsToSearch}">
-
                     <div id="input-fields-container">
-                        <input form="manual-form" id="search-main" name="productsToSearch" placeholder="Search..."
+                        <input id="search-main" name="productsToSearch" placeholder="Search..."
                                type="text">
                     </div>
-                    <button form="manual-form" id="add-field-btn" type="button">Add Field</button>
-
-                    <div class="select-filter" style="margin:10px;" th:object="${sorting}">
-                        <label for="option1">
-                            <input class="radio-field" id="option1" name="sorting" type="radio" value="BY_SHOPS">order
+                    <button type="button" id="add-field-btn">Add Field</button>
+                    <div class="select-filter" id="manual-options" style="margin:10px; visibility: hidden;" th:object="${sorting}">
+                        <label for="manual-option1">
+                            <input id="manual-option1" class="radio-field" name="sorting" type="radio" value="BY_SHOPS">order
                             by shops
                         </label>
-                        <label for="option2">
-                            <input id="option2" name="sorting" type="radio" value="BY_PRICE">order by price
+                        <label for="manual-option2">
+                            <input id="manual-option2" name="sorting" type="radio" value="BY_PRICE">order by price
                         </label>
                     </div>
-
-                    <button class="search-btn" id="search-modal-btn" onclick="submitForm()" style="margin-top:10px;padding:5px;"
-                            type="button">
-                        <i class="fa fa-search"></i>
-                    </button>
                 </form>
-            </div>
-            <div>
+
                 <form enctype="multipart/form-data" id="import-form" method="POST" th:action="@{/upload}"
                       th:object="${file}">
                     <div style="margin-top:20px; margin-bottom:10px;">
@@ -70,12 +62,27 @@
                         <p style="font-size: 15px; text-align:center;font-weight: bold;color:#555;">
                             SEPARATE PRODUCTS USING COMMA OR NEW LINE</p>
                         <div style="margin-top:10px;margin-left:auto;margin-right:auto;">
-                            <input form="import-form" id="myFile" name="file" type="file">
+                            <input type="file" id="myFile" name="file">
                         </div>
                     </div>
+
+                    <div class="select-filter" id="import-options" style="margin:10px; visibility: hidden;" th:object="${sorting}">
+                        <label for="import-option1">
+                            <input id="import-option1" class="radio-field" name="sorting" type="radio" value="BY_SHOPS">order
+                            by shops
+                        </label>
+                        <label for="import-option2">
+                            <input id="import-option2" name="sorting" type="radio" value="BY_PRICE">order by price
+                        </label>
+                    </div>
                 </form>
+
+                <button class="search-btn" id="search-modal-btn" onclick="submitForm()" style="margin-top:10px;padding:5px;"
+                        type="button">
+                    <i class="fa fa-search"></i>
+                </button>
             </div>
-            <div id="myProgress">
+            <div id="myProgress" style="visibility: hidden">
                 <div id="myBar"></div>
             </div>
         </div>
