@@ -2,6 +2,7 @@ package com.io.io22.controller;
 
 import com.io.io22.ceneo.service.CeneoService;
 import com.io.io22.model.ProductSearchModel;
+import com.io.io22.service.SearchHistoryService;
 import com.io.io22.utils.SortEnum;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
@@ -11,6 +12,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -19,8 +22,11 @@ public class HomeController {
 
     private final CeneoService ceneoService;
 
-    public HomeController(CeneoService ceneoService) {
+    private final SearchHistoryService searchHistoryService;
+
+    public HomeController(CeneoService ceneoService, SearchHistoryService searchHistoryService) {
         this.ceneoService = ceneoService;
+        this.searchHistoryService = searchHistoryService;
     }
 
     @GetMapping("/")
@@ -41,7 +47,10 @@ public class HomeController {
         if (!Objects.isNull(principal)) {
             model.addAttribute("userEmail", principal.getEmail());
         }
-        model.addAttribute("products", ceneoService.getCeneoProducts(productSearchModel.getProductsToSearch(), sorting));
+        List<String> productsToSearch = productSearchModel.getProductsToSearch();
+        productsToSearch.removeAll(Collections.singleton(""));
+        model.addAttribute("products", ceneoService.getCeneoProducts(productsToSearch, sorting));
+        searchHistoryService.addIfUserAuthenticated(principal, productsToSearch);
         return "index";
     }
 

@@ -20,30 +20,30 @@ public class FileService {
 
     public List<String> getProductsToSearch(MultipartFile file) {
         try {
-            if (isContentSeparatedByComma(file)) {
-                return getProductsToSearchSeparatedByComma(file);
+            String content = new String(file.getBytes(), StandardCharsets.UTF_8);
+            if (isContentSeparatedByComma(content)) {
+                return getProductsToSearchSeparatedByComma(content);
+            } else if (isContentSeparatedByNewLine(content)) {
+                return getProductsToSearchSeparatedByNewLine(file);
+            } else {
+                return Collections.singletonList(content);
             }
-            return getProductsToSearchSeparatedByNewLine(file);
         } catch (IOException exception) {
             return Collections.emptyList();
         }
     }
 
-    private boolean isContentSeparatedByComma(MultipartFile file) {
-        try {
-            String content = new String(file.getBytes(), StandardCharsets.UTF_8);
-            String[] productsToSearch = content.split(COMMA);
-            if (productsToSearch.length == 0) {
-                return false;
-            }
-        } catch (IOException exception) {
-            return false;
-        }
-        return true;
+    private boolean isContentSeparatedByComma(String content) {
+        String[] productsToSearch = content.split(COMMA);
+        return productsToSearch.length > 1;
     }
 
-    private List<String> getProductsToSearchSeparatedByComma(MultipartFile file) throws IOException {
-        String content = new String(file.getBytes(), StandardCharsets.UTF_8);
+    private boolean isContentSeparatedByNewLine(String content) {
+        String[] split = content.split(System.lineSeparator());
+        return split.length > 1;
+    }
+
+    private List<String> getProductsToSearchSeparatedByComma(String content) throws IOException {
         return Pattern.compile(COMMA).splitAsStream(content)
                 .map(String::strip)
                 .collect(Collectors.toList());
