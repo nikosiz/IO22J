@@ -21,9 +21,7 @@
     <img src="/images/child-peeking.jpg" alt="Children Laughing" style="width:100%;">
 </div>
 
-<div class="container" style="padding-left:200px;padding-right:200px;
-    margin-left: auto;
-    margin-right: auto">
+<div class="container" style="margin-left: auto;margin-right: auto">
     <a th:href="@{/logout}">
         <button id="logout-btn">Log out</button>
     </a>
@@ -33,13 +31,9 @@
     <div>
 
         <!--Wyświetlenie historii wyszukiwania -->
-        <table class="search-history-table" id="results-table" style="margin-left:auto;margin-right:auto;" th:each="offer :${cartOffers}">
-            <h3 th:text="${product.searchProduct}"></h3>
-            <tr class="products-1st-row">
-                <th class="product-name-th">Searched phrase</th>
-            </tr>
-            <tr style="text-align:center;">
-                <td th:text="${offer.getName()}" id="product-name">*Searched phrase*</td>
+        <table class="search-history-table" id="results-table" style="margin-left:auto;margin-right:auto;"
+        <tr></tr>
+        <tr></tr>
         </table>
 
     </div>
