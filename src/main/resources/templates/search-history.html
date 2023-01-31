@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+<html lang="en"
       xmlns:th="http://www.thymeleaf.org">
 <head><title>Account - ToyStores</title>
     <meta charset="UTF-8">
@@ -33,13 +33,16 @@
     <div>
 
         <!--Wyświetlenie historii wyszukiwania -->
-        <table class="search-history-table" id="results-table" style="margin-left:auto;margin-right:auto;" th:each="offer :${cartOffers}">
-            <h3 th:text="${product.searchProduct}"></h3>
+        <table class="search-history-table" id="results-table" style="margin-left:auto;margin-right:auto;"
+               th:each="searchHistoryCluster :${searchHistoryClusters}">
+            <h3 th:text="${searchHistoryCluster.getClusterSearchDate()}">DATE</h3>
             <tr class="products-1st-row">
                 <th class="product-name-th">Searched phrase</th>
             </tr>
-            <tr style="text-align:center;">
-                <td th:text="${offer.getName()}" id="product-name">*Searched phrase*</td>
+            <table th:each="product :${searchHistoryCluster.getProductEntity()}">
+                <tr style="text-align:center;">
+                    <td id="product-name" th:text="${product}">Searchec product</td>
+            </table>
         </table>
 
     </div>

@@ -11,7 +11,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Table(name = "search_history")
@@ -39,5 +41,21 @@ public class SearchHistoryEntity {
         this.clusterSearchDate = clusterSearchDate;
         this.userEntity = userEntity;
         this.productEntity = productEntity;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public LocalDateTime getClusterSearchDate() {
+        return clusterSearchDate;
+    }
+
+    public UserEntity getUserEntity() {
+        return userEntity;
+    }
+
+    public List<String> getProductEntity() {
+        return new ArrayList<>(productEntity);
     }
 }
