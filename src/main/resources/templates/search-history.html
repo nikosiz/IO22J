@@ -39,7 +39,7 @@
             </tr>
             <table th:each="product :${searchHistoryCluster.getProductEntity()}">
                 <tr style="text-align:center;">
-                    <td id="product-name" th:text="${product}">Searchec product</td>
+                    <td id="product-name" th:text="${product}">Searched product</td>
             </table>
         </table>
 
@@ -50,6 +50,7 @@
 <div th:insert="fragments/modal :: div"></div>
 
 <script src="/js/modal.js"></script>
+<script src="/js/progress-bar.js"></script>
 
 </body>
 </html>
