@@ -25,32 +25,32 @@
 
 <div class="img-container">
     <img src="/images/children-playing.jpg" alt="Children Laughing" style="width:100%;">
-    <!--<div class="center">
-        <h2>Welcome to ToyStores!</h2>
-        <h3>Tell us what do you need</h3>
-    </div>-->
 </div>
 
 <div id="search-results-container" class="container">
     <div th:each="product :${products}">
 
         <!--Wyświetlenie wyników wyszukiwania-->
-        <table id="results-table" style="margin-left:50px;margin-right:50px;">
+        <table id="results-table" style="width:100%">
             <h3 style="margin-left:50px;" th:text="${product.searchProduct}"></h3>
             <tr class="products-1st-row">
-                <th class="product-thumbnail-th" style="border-bottom:solid;width:100%;">Thumbnail</th>
-                <th class="product-name-th" id="prod-name-cell" style="border-bottom:solid;width:100%;">Product Name</th>
+                <th class="product-thumbnail-th" style="border-bottom:solid;max-width:90px;">Thumbnail</th>
+                <th class="product-name-th" id="prod-name-cell" style="border-bottom:solid;width:100%;">Product Name
+                </th>
                 <th class="product-price-th" style="border-bottom:solid;width:100%;">Price</th>
                 <th class="product-ship-th" style="border-bottom:solid;width:100%;">Shipping</th>
                 <th class="product-seller-th" style="border-bottom:solid;width:100%;">Seller</th>
-                <th class="product-buy-th" sec:authorize="isAuthenticated()" style="border-bottom:solid;width:100%;">Buy</th>
-                <!--<th>URL ?</th>-->
+                <th class="product-buy-th" sec:authorize="isAuthenticated()" style="border-bottom:solid;width:100%;">
+                    Buy
+                </th>
             </tr>
             <tr>
                 <td>
                     <img th:src="${product.getResultProduct().getThumbnailUrl()}">
                 </td>
-                <td th:text="${product.getResultProduct().getName()}" id="product-name">Product Name 100 000 000 00 0000
+                <td th:text="${product.getResultProduct().getName()}" id="product-name" style="inline-size: 500px;
+    overflow-wrap: break-word;
+    hyphens: manual;">Product Name 100 000 000 00 0000
                     00 000 0000000 000 000000
                 </td>
                 <td th:text="${product.getResultProduct().getOffer().getPrice()}" id="product-price">Price 1</td>
@@ -62,10 +62,9 @@
                 <div sec:authorize="isAuthenticated()">
                     <!--Dodawanie produktu do koszyka dla użytkownika zalogowanego-->
                     <td>
-                        <div onclick="openPopup()" ><button th:attr="onclick='addToCart(\'' + ${product.getResultProduct().getName()}+  '\',\'' + ${product.getResultProduct().getOffer().getPrice()}+  '\', \'' + ${product.getResultProduct().getOffer().getShippingPrice()}+  '\',\'' + ${product.getResultProduct().getOffer().getSeller()}+  '\',\'' + ${product.getResultProduct().getThumbnailUrl()}+  '\',\'' + ${product.getResultProduct().getOffer().getRedirectUrl()}+  '\',\'' + ${userEmail}+  '\');'">
+                        <button th:attr="onclick='addToCart(\'' + ${product.getResultProduct().getName()}+  '\',\'' + ${product.getResultProduct().getOffer().getPrice()}+  '\', \'' + ${product.getResultProduct().getOffer().getShippingPrice()}+  '\',\'' + ${product.getResultProduct().getOffer().getSeller()}+  '\',\'' + ${product.getResultProduct().getThumbnailUrl()}+  '\',\'' + ${product.getResultProduct().getOffer().getRedirectUrl()}+  '\',\'' + ${userEmail}+  '\');'">
                             Add to cart
-                            <span class="popuptext" id="cart-popup">Added to cart!</span>
-                        </button></div>
+                        </button>
                     </td>
                 </div>
             </tr>
