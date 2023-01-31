@@ -22,6 +22,7 @@ public class WebSecurityConfiguration  {
         http.authorizeRequests()
                 .mvcMatchers("/").permitAll()
                 .mvcMatchers("/searchProduct").permitAll()
+                .mvcMatchers("/upload").permitAll()
                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                 .anyRequest().authenticated()
                 .and()
