@@ -35,7 +35,7 @@ h69 {
     font-family: 'Fredoka One', sans-serif;
     font-size: 30px;
     font-weight: bold;
-    color:#555;
+    color:#444;
 
 }
 
@@ -280,7 +280,7 @@ input {
     align-items: center;
     padding: 7px 10px;
     border-radius: 20px;
-    width: 80px;
+    width:auto;
 }
 
 .cart span {
@@ -508,13 +508,13 @@ tr th {
 }
 
 #results-table tr:nth-child(even) {
-    background-color: #ffffff;
+    background-color: #ffffff;text-align: center;
 }
 
 #results-table th {
     padding: 10px;
     font-weight: bold;
-    text-align: left;
+    text-align: center;
     background-color: #fff;
     color: #0060af;
 

@@ -41,9 +41,9 @@
                 <th class="product-thumbnail-th" style="border-bottom:solid;">Thumbnail</th>
                 <th class="product-name-th" id="prod-name-cell" style="border-bottom:solid;">Product Name</th>
                 <th class="product-price-th">Price</th>
-                <th class="product-ship-th">Shipping Price</th>
+                <th class="product-ship-th">Shipping</th>
                 <th class="product-seller-th">Seller</th>
-                <th class="product-buy-th">Buy</th>
+                <th class="product-buy-th" sec:authorize="isAuthenticated()">Buy</th>
                 <!--<th>URL ?</th>-->
             </tr>
             <tr>
