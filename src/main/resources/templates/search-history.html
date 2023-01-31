@@ -31,24 +31,23 @@
     <div>
         <!--Wyświetlenie historii wyszukiwania -->
         <table class="search-history-table" id="results-table"
-               style="margin-left:auto;margin-right:auto;table-layout: auto; width: 100%:"
-               th:each="searchHistoryCluster :${searchHistoryClusters}">
+               style="margin-left:auto;margin-right:auto;table-layout:auto; width: 100%">
             <tr>
                 <th>Date</th>
                 <th class="product-name-th">Searched phrase</th>
             </tr>
-            <tr>
+            <tr style="margin-left:auto;margin-right:auto;text-align: center;margin-top:10px;border-bottom:solid 1px #0060af;border-top:solid 1px #0060af;"
+                th:each="searchHistoryCluster :${searchHistoryClusters}">
                 <td>
                     <table th:each="product :${searchHistoryCluster.getProductEntity()}"
                            style="margin-left:auto;margin-right:auto;">
-                        <tr th:text="${searchHistoryCluster.getClusterSearchDate()}">*daaaaaaaaaate*</tr>
+                        <tr th:text="${searchHistoryCluster.getClusterSearchDate()}">*date*</tr>
                     </table>
                 </td>
                 <td>
                     <table th:each="product :${searchHistoryCluster.getProductEntity()}"
                            style="margin-left:auto;margin-right:auto;">
-                        <tr style="text-align:center;" id="product-name" th:text="${product}">*searched
-                            aaaaaaaaaaaaaaaaaproduct*
+                        <tr style="text-align:center;" id="product-name" th:text="${product}">*searched product*
                         </tr>
                     </table>
                 </td>
