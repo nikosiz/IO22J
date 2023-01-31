@@ -125,11 +125,13 @@ function submitForm() {
     const importForm = document.getElementById('import-form');
 
     if (manualForm.elements['search-main'].value.length > 0) {
+        document.getElementById("myProgress").style = "visibility: visible";
         document.getElementById("option1").form = "manual-form";
         document.getElementById("option2").form = "manual-form";
         manualForm.submit();
         move()
     } else if (importForm.elements['file'].value.length > 0) {
+        document.getElementById("myProgress").style = "visibility: visible";
         document.getElementById("option1").form = "import-form";
         document.getElementById("option2").form = "import-form";
         importForm.submit();
