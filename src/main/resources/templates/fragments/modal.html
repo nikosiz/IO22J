@@ -38,7 +38,7 @@
         <div class="search-container" style="margin-left:auto;margin-right:auto;margin-top:20px;">
             <div class="buttons-container" style="padding:5px;">
                 <form id="manual-form" method="GET" th:action="@{/searchProduct}" th:object="${productsToSearch}"></form>
-                <form id="import-form" method="GET" th:action="@{/upload}" th:object="${file}"></form>
+                <form id="import-form" method="POST" th:action="@{/upload}" th:object="${file}" enctype="multipart/form-data"></form>
 
                 <div id="input-fields-container">
                     <input id="search-main" name="productsToSearch" placeholder="Search..." type="text" form="manual-form">
