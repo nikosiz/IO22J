@@ -35,8 +35,12 @@ h69 {
     font-family: 'Fredoka One', sans-serif;
     font-size: 30px;
     font-weight: bold;
-    color:#444;
+    color: #444;
 
+}
+
+img {
+    width: 100%;
 }
 
 button {
@@ -78,7 +82,7 @@ header {
 .logo img {
     max-width: 183px;
     height: auto;
-    margin-left:20px;
+    margin-left: 20px;
 }
 
 .search-btn {
@@ -106,12 +110,14 @@ header {
     padding-bottom: 100px;
     border-radius: 20px;
     align-items: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /*---------- MAIN PAGE ----------*/
 
 #search-results-container {
-    width:100%;
+    width: 100%;
     max-width: 100%;
 }
 
@@ -169,11 +175,6 @@ input[type="radio"]:checked + label:before {
     border-radius: 50%;
 }
 
-label.selected:before {
-    content: "";
-    background: #0060af;
-    border-radius: 50%;
-}
 
 .close-modal {
     color: #aaa;
@@ -211,9 +212,6 @@ label.selected:before {
     flex-direction: row;
 }
 
-.submit-search-btn {
-    margin-right: 5px;
-}
 
 #search-main {
     border-radius: 20px;
@@ -232,10 +230,6 @@ label.selected:before {
     padding: 5px 10px;
     background: white;
     border: solid 2px #999;
-}
-
-.add-field-btn {
-    order: -1;
 }
 
 input {
@@ -267,10 +261,15 @@ input {
 }
 
 .shopping-cart-table {
-    border-style:solid;
-    border-width:1px;
-    border-color:#999;
-    border-radius:20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #999;
+    border-radius: 20px;
+}
+
+.table {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .cart {
@@ -280,7 +279,7 @@ input {
     align-items: center;
     padding: 7px 10px;
     border-radius: 20px;
-    width:auto;
+    width: auto;
 }
 
 .cart span {
@@ -321,12 +320,6 @@ input {
 }
 
 /*---------------- SHOPPING CART ----------------*/
-.products-container {
-    max-width: 100%;
-    justify-content: space-around;
-    margin: 0 auto;
-    margin: 50px;
-}
 
 .product-header {
     width: 100%;
@@ -349,6 +342,16 @@ input {
     align-items: center;
     display: flex;
     justify-content: center;
+}
+
+#product-name {
+    min-inline-size: 500px;
+    overflow-wrap: break-word;
+    hyphens: manual;
+}
+
+.product-thumbnail-th, product-name-th, product-price-th, product-ship-th, product-seller-th, product-buy-th {
+    border-bottom: solid;
 }
 
 .price {
@@ -390,14 +393,12 @@ input {
     align-items: center;
 }
 
-.products {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-}
-
 .products img {
     width: 75px;
+}
+
+.img-container {
+    width: 100%;
 }
 
 .cartTotalContainer {
@@ -428,37 +429,6 @@ cartTotal {
     justify-content: flex-start;
     border-bottom: 4px solid lightgrey;
     margin: 0 auto;
-}
-
-.hist-product {
-    width: 16%;
-    display: flex;
-    justify-content: space-around;
-    padding: 10px 0;
-    border-bottom: 1px solid lightgrey;
-}
-
-.hist-name {
-    width: 50%;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-}
-
-.hist-price {
-    width: 25%;
-    justify-content: center;
-    display: flex;
-    border-bottom: 1px solid lightgrey;
-    align-items: center;
-}
-
-.hist-link {
-    width: 25%;
-    border-bottom: 1px solid lightgrey;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .add-to-cart {
@@ -492,15 +462,8 @@ cartTotal {
     font-size: 18px;
 }
 
-.results-table {
-    font-family: 'Roboto', sans-serif;
-    border-collapse: collapse;
-    min-width: 100%;
-    margin-top:30px;
-}
-
 tr th {
-    border-bottom:solid;
+    border-bottom: solid;
 }
 
 #results-table td, #results-table th {
@@ -508,7 +471,8 @@ tr th {
 }
 
 #results-table tr:nth-child(even) {
-    background-color: #ffffff;text-align: center;
+    background-color: #ffffff;
+    text-align: center;
 }
 
 #results-table th {
@@ -529,16 +493,19 @@ tr th {
     font-family: 'Roboto', sans-serif;
     border-collapse: collapse;
     min-width: 100%;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    table-layout: auto;
+    width: 100%
 }
 
-.account-wrapper {
-    border: 1px solid blue;
-    margin: 20px;
-    min-width: 10%;
-    justify-items: center;
-    align-items: center;
+.search-history-table tr {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 10px;
+    border-bottom: solid 1px #0060af;
+    border-top: solid 1px #0060af;
 }
 
 .history-container {
@@ -549,16 +516,6 @@ tr th {
     border: 1px solid red;
 }
 
-.account-container {
-    vertical-align: top;
-    display: inline-block;
-    justify-items: center;
-    min-width: 10%;
-    max-width: 20%;
-    height: 100%;
-    border: 1px solid green;
-}
-
 #add-field-btn {
     margin-top: 10px;
 }
@@ -566,7 +523,7 @@ tr th {
 #myProgress {
     width: 100%;
     background-color: #ddd;
-    margin-top:20px;
+    margin-top: 20px;
 }
 
 #myBar {

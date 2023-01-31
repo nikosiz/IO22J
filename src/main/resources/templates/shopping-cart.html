@@ -18,44 +18,34 @@
 <div th:insert="fragments/nav :: header"></div>
 
 <div class="img-container">
-    <img src="/images/girl-playing.jpg" alt="Children Laughing" style="width:100%;">
-    <!--<div class="center">
-        <h2>Welcome to ToyStores!</h2>
-        <h3>Tell us what do you need</h3>
-    </div>-->
+    <img src="/images/girl-playing.jpg" alt="Girl Playing" style="width:100%;">
 </div>
 
-<div id="search-results-container" class="container">
+<div id="search-results-container" class="container" style="margin-left:auto;margin-right:auto;">
     <div th:if="${cartOffers==null or cartOffers.isEmpty()}">
-        <h69 style="color:#555555;">Your cart is empty :(</h69>
+        <h69>Your cart is empty :(</h69>
     </div>
 
-    <div th:if="${cartOffers!=null and !cartOffers.isEmpty()}">
+    <div th:if="${cartOffers!=null and !cartOffers.isEmpty()}" style="margin-left:auto;margin-right:auto;">
 
         <!--Wyświetlenie produktów dodanych do koszyka-->
-        <table id="results-table" style="margin-left:20px;margin-right:20px;max-width:100%;"
+        <table id="results-table" style="margin-left:50px;margin-right:50px;max-width:100%;"
                th:each="offer :${cartOffers}">
             <tr class="products-1st-row">
-                <th class="product-thumbnail-th" style="border-bottom:solid;">Thumbnail</th>
-                <th class="product-name-th" style="border-bottom:solid;">Product Name</th>
-                <th class="product-price-th" style="border-bottom:solid;">Price</th>
-                <th class="product-seller-th" style="border-bottom:solid;">Seller</th>
-                <th class="product-link-th" style="border-bottom:solid;">Link</th>
-                <th style="border-bottom:solid;">Delete</th>
+                <th class="product-thumbnail-th" style="max-width:300px;">Thumbnail</th>
+                <th class="product-name-th" style="max-width:500px">Product Name</th>
+                <th class="product-price-th" style="width:100%">Price</th>
+                <th class="product-seller-th" style="width:100%">Seller</th>
+                <th class="product-link-th" style="width:100%">Link</th>
+                <th>Delete</th>
             </tr>
-            <tr>
+            <tr style="max-height:300px;">
                 <td>
                     <img th:src="${offer.getThumbnailUrl()}">
                 </td>
-                <td th:text="${offer.getName()}" id="product-name">
-                    *product name*
-                </td>
-                <td th:text="${offer.getPrice()}" id="product-price">
-                    *price*
-                </td>
-                <td th:text="${offer.getSeller()}" id="product-seller">
-                    *seller*
-                </td>
+                <td th:text="${offer.getName()}" id="product-name"> *product name*</td>
+                <td th:text="${offer.getPrice()}" id="product-price"> *price*</td>
+                <td th:text="${offer.getSeller()}" id="product-seller"> *seller*</td>
                 <td id="product-link">
                     <a th:href="${offer.getRedirectURL()}">link
                     </a>
@@ -63,21 +53,23 @@
 
                 <td>
                     <a th:href="@{/cart/{id}(id=${offer.getId()})}" style="margin-left:auto;margin-right:auto;">
-                        <i class="fa fa-trash" style="color:#72bf44;"></i>
+                        <i class="fa fa-trash" style="color:#0060af;"></i>
                     </a>
                 </td>
 
-                <td style="border-radius:20px;border:2px solid #0060af;width:30%;height:auto;align-items:center;">
+                <td style="border-radius:20px;border:2px solid #0060af;max-width:30%;height:auto;align-items:center;">
                     <div style="padding:20px;">
                         <div style="padding:20px;height:auto;width:100%">
                             <h69 style="font-weight:bold;font-size:25px;color: #0060af;">Shipping</h69>
-                            <p th:if="${offer.getShippingPrice()==0}" style="margin-top: 10px;margin-left:auto;font-size:20px;">Free</p>
+                            <p th:if="${offer.getShippingPrice()==0}"
+                               style="margin-top: 10px;margin-left:auto;font-size:20px;">Free</p>
                             <p th:if="${offer.getShippingPrice()!=0}" th:text="${offer.getShippingPrice()}"
                                style="margin-top: 10px;margin-left:auto;font-size:20px;"></p>
                         </div>
                         <div style="padding:20px;width:100%;height:auto;">
                             <h69 style="font-weight:bold;font-size:25px;color: #0060af;">Total price</h69>
-                            <p th:text="${offer.getTotalPrice()}" style="margin-top: 10px;margin-left:auto;font-size:20px;">1000</p>
+                            <p th:text="${offer.getTotalPrice()}"
+                               style="margin-top: 10px;margin-left:auto;font-size:20px;">1000</p>
                         </div>
                     </div>
                 </td>
