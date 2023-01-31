@@ -33,13 +33,13 @@ public class FileService {
         try {
             String content = new String(file.getBytes(), StandardCharsets.UTF_8);
             String[] productsToSearch = content.split(COMMA);
-            if (productsToSearch.length == 0) {
-                return false;
+            if (productsToSearch.length > 1) {
+                return true;
             }
         } catch (IOException exception) {
             return false;
         }
-        return true;
+        return false;
     }
 
     private List<String> getProductsToSearchSeparatedByComma(MultipartFile file) throws IOException {
