@@ -19,6 +19,12 @@ public class FileService {
     private static final String COMMA = ",";
 
     public List<String> getProductsToSearch(MultipartFile file) {
+        return parseFileContent(file).stream()
+                .limit(10)
+                .collect(Collectors.toList());
+    }
+
+    private List<String> parseFileContent(MultipartFile file) {
         try {
             String content = new String(file.getBytes(), StandardCharsets.UTF_8);
             if (isContentSeparatedByComma(content)) {
