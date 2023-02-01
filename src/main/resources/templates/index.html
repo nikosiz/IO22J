@@ -2,6 +2,7 @@
 <html lang="en" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
       xmlns:th="http://www.thymeleaf.org">
 <head>
+    <title>Home - ToyStores</title>
     <link rel="icon" type="icon" href="/images/favicon.ico">
     <meta charset="UTF-8">
     <meta id="_csrf" name="_csrf" th:content="${_csrf.token}"/>
@@ -11,7 +12,7 @@
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="/css/styles.css" rel="stylesheet">
-    <title>Home - ToyStores</title>
+
     <script
             crossorigin="anonymous"
             integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
@@ -27,20 +28,21 @@
     <img src="/images/children-playing.jpg" alt="Children Laughing" style="width:100%;">
 </div>
 
-<div id="search-results-container" class="container">
+<div id="search-results-container" class="container" style="margin-left:auto;margin-right:auto;width:100%;">
     <div th:each="product :${products}">
 
         <!--Wyświetlenie wyników wyszukiwania-->
         <table id="results-table" style="width:100%">
             <h3 style="margin-left:50px;" th:text="${product.searchProduct}"></h3>
             <tr class="products-1st-row">
-                <th class="product-thumbnail-th" style="border-bottom:solid;max-width:90px;">Thumbnail</th>
-                <th class="product-name-th" id="prod-name-cell" style="border-bottom:solid;width:100%;">Product Name
+                <th class="product-thumbnail-th" style="border-bottom:solid;max-width:75px;">Thumbnail</th>
+                <th class="product-name-th" id="prod-name-cell" style="border-bottom:solid;max-width:100%;">Product Name
                 </th>
-                <th class="product-price-th" style="border-bottom:solid;width:100%;">Price</th>
-                <th class="product-ship-th" style="border-bottom:solid;width:100%;">Shipping</th>
-                <th class="product-seller-th" style="border-bottom:solid;width:100%;">Seller</th>
-                <th class="product-buy-th" sec:authorize="isAuthenticated()" style="border-bottom:solid;width:100%;">
+                <th class="product-price-th" style="border-bottom:solid;max-width:100%;">Price</th>
+                <th class="product-ship-th" style="border-bottom:solid;max-width:100%;">Shipping</th>
+                <th class="product-seller-th" style="border-bottom:solid;max-width:100%;">Seller</th>
+                <th class="product-buy-th" sec:authorize="isAuthenticated()"
+                    style="border-bottom:solid;max-width:100%;">
                     Buy
                 </th>
             </tr>

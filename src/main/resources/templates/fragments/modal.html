@@ -2,13 +2,14 @@
 <html lang="en" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
       xmlns:th="http://www.thymeleaf.org">
 <head>
+    <title>Modal - ToyStores</title>
+    <link rel="icon" type="icon" href="/images/favicon.ico">
     <meta charset="UTF-8">
     <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
           name="viewport">
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="/css/styles.css" rel="stylesheet">
-    <title>Modal - ToyStores</title>
     <script
             crossorigin="anonymous"
             integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
@@ -45,11 +46,11 @@
                     <button type="button" id="add-field-btn" style="margin-bottom:20px;">Add Field</button>
                     <div class="select-filter" id="manual-options" style="visibility: hidden;" th:object="${sorting}">
                         <label for="manual-option1">
-                            <input id="manual-option1" class="radio-field" name="sorting" type="radio" value="BY_SHOPS">order
-                            by shops
+                            <input id="manual-option1" class="radio-field" name="sorting" type="radio" value="BY_SHOPS">
+                            group by shops
                         </label>
                         <label for="manual-option2">
-                            <input id="manual-option2" name="sorting" type="radio" value="BY_PRICE">order by price
+                            <input id="manual-option2" name="sorting" type="radio" value="BY_PRICE">choose cheapest offers
                         </label>
                     </div>
                 </form>
@@ -68,11 +69,12 @@
 
                     <div class="select-filter" id="import-options" style="visibility: hidden;" th:object="${sorting}">
                         <label for="import-option1">
-                            <input id="import-option1" class="radio-field" name="sorting" type="radio" value="BY_SHOPS">order
-                            by shops
+                            <input id="import-option1" class="radio-field" name="sorting" type="radio" value="BY_SHOPS">
+                            group by shops
                         </label>
                         <label for="import-option2">
-                            <input id="import-option2" name="sorting" type="radio" value="BY_PRICE">order by price
+                            <input id="import-option2" name="sorting" type="radio" value="BY_PRICE">
+                            choose cheapest offers
                         </label>
                     </div>
                 </form>

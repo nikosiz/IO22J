@@ -17,6 +17,7 @@ addFieldBtn.addEventListener("click", function (event) {
         var fieldContainer = document.createElement("div");
         fieldContainer.classList.add("field-container");
         fieldContainer.id = "field-container";
+        fieldContainer.style = "margin-left:auto;margin-right:auto;";
 
         // Create a new input field
         var input = document.createElement("input");
