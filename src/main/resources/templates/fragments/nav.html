@@ -15,46 +15,30 @@
 </head>
 <body>
 
+<!-- Navigation bar container -->
 <header class="top-nav" th:fragment="nav" style="">
 
-    <a class="logo" th:href="@{/}"><img src="/images/Logo.svg" alt="Children Laughing"></a>
 
+    <a class="logo" th:href="@{/}"><img src="/images/Logo.svg" alt="Logo"></a>
+
+    <!-- Navigation bar - search button -->
     <div style="margin-left:auto;">
-
-        <!--<form th:action="@{/search}" method="get">
-             <input type="text" name="keyword" th:value="${keyword}" placeholder="Search...">
-             <button type="submit" class="button">Search</button>
-             <button type="submit" class="button">Reset</button>
-         </input></form>-->
-
-
-        <!--<form method="GET" th:action="@{/searchProduct}" th:object="${productsToSearch}"></form>-->
-        <!--<input id="search" name="productsToSearch" placeholder="Search..." type="text">-->
-
         <button class="search-btn" id="search-modal-btn">
             <i class="fa fa-search"></i>
         </button>
-        <!--<button class="submit-search-btn" style="background-color:#ed145a" type="submit">
-            <i class="fa fa-search"></i>
-        </button>-->
-
-
-        <!--     Nie wiem co ten guzik robi, ale jeśli nie jest submitem to musi byc poza form-->
-        <!--   <button class="button" type="submit"><i class="fa fa-trash"></i></button>-->
-
-
-        <!--</input>-->
-
-        <!-- <button class="submit-search-btn" style="float: right; margin-left: 5px;" type="submit"><i
-                 class="fa-solid fa-search"></i></button>-->
     </div>
 
+    <!-- Navigation bar - login/profile container -->
     <div class="log-btn-container">
+
+        <!-- Navigation bar - login button -->
         <div sec:authorize="!isAuthenticated()" style="margin-right:20px;">
             <a th:href="@{/oauth2/authorization/auth0}">
                 <button id="login-btn" style="margin-left:5px"><i class="fa fa-user"></i></button>
             </a>
         </div>
+
+        <!-- Navigation bar - profile button -->
         <div sec:authorize="isAuthenticated()">
             <a th:href="@{/history}">
                 <!-- <button id="logout-btn" style="margin-left:5px">Log out</button> -->
@@ -63,17 +47,18 @@
         </div>
     </div>
 
+    <!-- Navigation bar - cart container -->
     <div id="cart-container" sec:authorize="isAuthenticated()">
         <div id="cart">
             <a style="text-decoration:none;" th:href="@{/cart/}">
                 <div class="cart">
                     <i class="fa fa-shopping-cart" style="color:white;"></i>
-                    <!--<i class="fas fa-cloud" style="color:white;"></i>-->
                 </div>
             </a>
         </div>
     </div>
 </header>
+
 
 <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
 

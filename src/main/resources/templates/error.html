@@ -16,8 +16,10 @@
 </head>
 <body>
 
+<!-- Import navigation bar -->
 <div th:insert="fragments/nav :: header"></div>
 
+<!-- Import main photo -->
 <div class="img-container">
     <img src="/images/crying-child.jpg" alt="Crying Child" style="width:100%;">
 </div>
@@ -30,11 +32,14 @@
     </div>
 </div>
 
+<!-- Import modal -->
 <div th:insert="fragments/modal :: div"></div>
 
+<!-- Import scripts -->
 <script src="/js/modal.js"></script>
 <script src="/js/progress-bar.js"></script>
 
+<!-- Import footer -->
 <div th:insert="fragments/footer :: footer"></div>
 
 </body>

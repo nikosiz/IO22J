@@ -19,23 +19,15 @@
 </head>
 <body>
 
-<!-- The Modal -->
+<!-- Modal container -->
 <div id="search-many-modal" class="search-many-modal">
-
-    <!--<div class="search-many-modal" >
-      <div class="search-container">
-        <form action="/action_page.php">
-          <input type="text" placeholder="Search.." name="search">
-          <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
-      </div>
-    </div>-->
 
     <!-- Modal content -->
     <div class="search-modal-content" style="border-radius:20px;padding: 20px;">
         <span class="close-modal">&times;</span>
         <h69 style="margin-top:30px;">Type in what you are searching for...</h69>
 
+        <!-- Search container -->
         <div class="search-container" style="margin-left:auto;margin-right:auto;margin-top:20px;">
             <div class="buttons-container" style="padding:5px;">
                 <form id="manual-form" method="GET" th:action="@{/searchProduct}" th:object="${productsToSearch}">
@@ -43,7 +35,11 @@
                         <input id="search-main" name="productsToSearch" placeholder="Search..."
                                type="text">
                     </div>
+
+                    <!-- Add search field for manual input -->
                     <button type="button" id="add-field-btn" style="margin-bottom:20px;">Add Field</button>
+
+                    <!-- Filter results for manual input -->
                     <div class="select-filter" id="manual-options" style="visibility: hidden;" th:object="${sorting}">
                         <label for="manual-option1">
                             <input id="manual-option1" class="radio-field" name="sorting" type="radio" value="BY_SHOPS">
@@ -55,6 +51,7 @@
                     </div>
                 </form>
 
+                <!-- Import file field -->
                 <form enctype="multipart/form-data" id="import-form" method="POST" th:action="@{/upload}"
                       th:object="${file}">
                     <div style="margin-top:20px; margin-bottom:10px;">
@@ -67,6 +64,7 @@
                         </div>
                     </div>
 
+                    <!-- Filter results for importing file -->
                     <div class="select-filter" id="import-options" style="visibility: hidden;" th:object="${sorting}">
                         <label for="import-option1">
                             <input id="import-option1" class="radio-field" name="sorting" type="radio" value="BY_SHOPS">
@@ -79,6 +77,7 @@
                     </div>
                 </form>
 
+                <!-- Search button -->
                 <button class="search-btn" id="search-modal-btn" onclick="submitForm()" style="margin-top:20px;padding:5px;"
                         type="button">
                     <i class="fa fa-search"></i>

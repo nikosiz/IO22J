@@ -12,7 +12,6 @@
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="/css/styles.css" rel="stylesheet">
-
     <script
             crossorigin="anonymous"
             integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
@@ -21,8 +20,10 @@
 </head>
 <body>
 
+<!-- Import navigation bar -->
 <div th:insert="fragments/nav :: header"></div>
 
+<!-- Import main photo -->
 <div class="img-container">
     <img src="/images/children-playing.jpg" alt="Children Playing">
 </div>
@@ -69,12 +70,14 @@
     </div>
 </div>
 
+<!-- Import modal -->
 <div th:insert="fragments/modal :: div"></div>
 
+<!-- Import scripts -->
 <script src="/js/modal.js"></script>
 <script src="/js/progress-bar.js"></script>
-<script src="/js/added-to-cart-popup.js"></script>
 
+<!-- Import footer -->
 <div th:insert="fragments/footer :: footer"></div>
 
 </body>
